@@ -1,0 +1,17 @@
+{
+  "name": "mockserver-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon --watch \"./**\" --ext \"js\" --exec \"node index.js\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mockserver-client": "^5.15.0",
+    "mockserver-node": "^5.15.0",
+    "nodemon": "^3.0.2"
+  }
+}
