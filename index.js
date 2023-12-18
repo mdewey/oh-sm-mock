@@ -1,55 +1,38 @@
 const mockserver = require('mockserver-node');
 const mockServerClient = require('mockserver-client').mockServerClient;
-
+const { MessagingApiMock } = require('./mock-factory/messaging');
 const PORT = 3000;
 
 mockserver.start_mockserver({
   serverPort: PORT,
-  trace: true,
   verbose: true,
 }).then(
   function () {
     console.log("started MockServer");
-    const mocks = [
-      {
-        'httpRequest': {
-          'path': '/somePathOne'
-        },
-        'httpResponse': {
-          'statusCode': 200,
-          'body': JSON.stringify({ 'value': 'one' })
-        }
-      },
-      {
-        'httpRequest': {
-          'path': '/somePathTwo'
-        },
-        'httpResponse': {
-          'statusCode': 200,
-          'body': JSON.stringify({ 'value': 'one' })
-        }
-      },
-      {
-        'httpRequest': {
-          'path': '/somePathThree'
-        },
-        'httpResponse': {
-          'statusCode': 200,
-          'body': JSON.stringify({ 'value': 'one' })
-        }
-      }
-    ]
-
-    mockServerClient("localhost", PORT)
-      .mockAnyResponse(mocks)
-      .then(
-        function () {
-          console.log("expectation created");
-        },
-        function (error) {
-          console.log({ error });
-        }
-      );
+    const mocks = MessagingApiMock.createMockPaths();
+    console.log(`LOG: creating ${mocks.length} mocks`);
+    mocks.forEach(mock => {
+      console.log(mock);
+      mockServerClient("localhost", PORT)
+        .mockWithCallback(
+          {
+            'path': mock.httpRequest.path,
+            'pathParameters': {
+              ...mock.httpRequest.pathParameters
+            },
+          },
+          mock.callback,
+          mock.times,
+        )
+        .then(
+          function () {
+            console.log(`expectation created: ${mock.name} | ${mock.httpRequest.path}`);
+          },
+          function (error) {
+            console.log(error);
+          }
+        );
+    })
   },
   function (error) {
     console.log(JSON.stringify(error, null, "  "));
