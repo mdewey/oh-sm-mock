@@ -1,6 +1,6 @@
 const mockserver = require('mockserver-node');
 const mockServerClient = require('mockserver-client').mockServerClient;
-const { MessagingApiMock } = require('./mock-factory/messaging');
+const { MessagingApiMock } = require('./mock-factory');
 const PORT = 3000;
 
 mockserver.start_mockserver({
