@@ -31,6 +31,7 @@ TBD
 
 ## Someday
 
+- add linting and other dev UX stuff
 - add a in memory db to manipluate data?
 - Create from swagger
 - move away from mock-server?

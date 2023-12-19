@@ -1,10 +1,14 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-const openJsonFile = (fileName) => {
-  const filePath = path.join(__dirname, fileName);
-  console.log("opening file", { __dirname, filePath, fileName });
-  const data = fs.readFileSync(filePath, 'utf8');
+const openJsonFile = (fileSlug) => {
+  const defaultPath = path.join(__dirname, "/data/get-message-by-id/default.json");
+  const messagePath = path.join(__dirname, `/data/get-message-by-id/${fileSlug}.json`);
+  console.log("opening file", { __dirname, fileSlug, messagePath, defaultPath });
+  // check if file exists
+  const pathToOpen = fs.existsSync(messagePath) ? messagePath : defaultPath;
+  console.log("opening file", { pathToOpen });
+  const data = fs.readFileSync(pathToOpen, 'utf8');
   const json = JSON.parse(data);
   return json;
 }
@@ -44,7 +48,7 @@ const ROUTES = {
       'baseAuthority': ["[A-Z0-9\\-]+"],
       'authority': ["[A-Z0-9\\-]+"],
       'patientId': ["[A-Z0-9\\-]+"],
-      'messageId': ["[A-Z0-9\\-]+"]
+      'messageId': ["([A-z0-9]*):-[0-9]:[0-9]:[0-9]"]
     },
     times: {
       'unlimited': true
@@ -63,8 +67,8 @@ const ROUTES = {
           'body': ''
         }
       }
-
-      const rvData = openJsonFile('/data/get-message-by-id/default.json');
+      const id = request.pathParameters.messageId[0].replace(/:/g, '_');
+      const rvData = openJsonFile(id);
       const rv = {
         ...rvData,
       }

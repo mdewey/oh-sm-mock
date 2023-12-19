@@ -1,0 +1,39 @@
+{
+  "messagesById": {
+    "1111111111:-6:0:0": {
+      "patientId": 8830923,
+      "encounterId": 61059949,
+      "text": "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Calibri;}}\r\n{\\*\\generator Riched20 6.3.9600}\\viewkind4\\uc1\r\n\\pard\\sa200\\sl276\\slmult1\\f0\\fs22\\lang9 This is a sample template, which can be modified to suit the specific\r\n needs of your project. Wherever you want to position the clipboard link in your message, place the following special tag:\\par\r\nhttps://intermountain.stagingiqhealth.com/clipboards/millennium-persons/8830923/encounter_events/IP8jR8Tb2/clipboard-types/nv9Zh4gv9/\\par\r\nHere is some additional text positioned after the clipboard link. This template must be saved as an RTF file using wordpad.exe,\r\nnever Microsoft Word.\r\nIt is ok to use Word to modify the template, but the file must be resaved with wordpad.\\par\r\n}",
+      "updateDate": "2019-09-05T22:00:29Z",
+      "openUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8830923/inbox/messages/1111111111%3A-6%3A3%3A3/status/OPEN",
+      "deleteUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8830923/inbox/messages/1111111111%3A-6%3A3%3A3/status/DELETE",
+      "unreadUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8830923/inbox/messages/1111111111%3A-6%3A3%3A3/status/UNREAD",
+      "replyUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8830923/outbox/messages/",
+      "texts": [
+        {
+          "formatType": "RTF",
+          "text": "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat\\deflang1033{\\fonttbl{\\f0\\fnil\\fcharset0 Calibri;}}\r\n{\\*\\generator Riched20 6.3.9600}\\viewkind4\\uc1\r\n\\pard\\sa200\\sl276\\slmult1\\f0\\fs22\\lang9 This is a sample template, which can be modified to suit the specific\r\n needs of your project. Wherever you want to position the clipboard link in your message, place the following special tag:\\par\r\nhttps://intermountain.stagingiqhealth.com/clipboards/millennium-persons/8830923/encounter_events/IP8jR8Tb2/clipboard-types/nv9Zh4gv9/\\par\r\nHere is some additional text positioned after the clipboard link. This template must be saved as an RTF file using wordpad.exe,\r\nnever Microsoft Word.\r\nIt is ok to use Word to modify the template, but the file must be resaved with wordpad.\\par\r\n}"
+        }
+      ],
+      "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8830923/inbox/messages/1111111111%3A-6%3A3%3A3",
+      "id": "1111111111:-6:3:3",
+      "subject": "Annual Wellness Visit Clipboard",
+      "personSenderId": 0,
+      "personnelSenderId": 2,
+      "poolSenderId": 0,
+      "createDate": "2019-05-16T22:46:44Z",
+      "messageType": "MESSAGE",
+      "priority": "ROUTINE",
+      "status": "OPENED",
+      "receivers": [
+        {
+          "receiverId": 8830923,
+          "type": "PERSON",
+          "status": "OPENED"
+        }
+      ],
+      "referenceId": "1111111111",
+      "responsiblePersonnelId": 2
+    }
+  }
+}
