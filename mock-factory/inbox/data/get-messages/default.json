@@ -1,0 +1,54 @@
+{
+  "messages": [
+    {
+      "idUrl": "string",
+      "id": "string",
+      "subject": "string",
+      "personSenderId": 0,
+      "personnelSenderId": 0,
+      "poolSenderId": 0,
+      "createDate": "2023-12-19T19:25:09.613Z",
+      "reminderDate": "2023-12-19T19:25:09.613Z",
+      "messageType": "MESSAGE",
+      "priority": "STAT",
+      "status": "UNREAD",
+      "attachments": [
+        {
+          "name": "string",
+          "mediaIdentifier": "string",
+          "mediaVersion": 0
+        }
+      ],
+      "receivers": [
+        {
+          "receiverId": 0,
+          "type": "PERSONNEL",
+          "status": "UNREAD",
+          "email": {
+            "address": "string"
+          }
+        }
+      ],
+      "ccReceivers": [
+        {
+          "receiverId": 0,
+          "type": "PERSONNEL",
+          "status": "UNREAD",
+          "email": {
+            "address": "string"
+          }
+        }
+      ],
+      "referenceId": "string",
+      "emailSender": {
+        "address": "string"
+      },
+      "sensitivity": {
+        "portalUserUUIDs": [
+          "string"
+        ]
+      },
+      "responsiblePersonnelId": 0
+    }
+  ]
+}

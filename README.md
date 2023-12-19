@@ -28,6 +28,7 @@ TBD
 - Add Outbox
 - Add the rest of the endpoints
 - Refine doc
+- refine logging
 
 ## Someday
 
