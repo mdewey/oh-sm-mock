@@ -90,22 +90,7 @@ const ROUTES = {
           'body': JSON.stringify({ error: 'Method not allowed' })
         }
       }
-      const rv = {
-        meta: {
-          method: request.method,
-          params: {
-            'baseAuthority': request.pathParameters.baseAuthority[0],
-            'authority': request.pathParameters.authority[0],
-            'patientId': request.pathParameters.patientId[0],
-            'messageIds': request.pathParameters.messageIds[0],
-            'status': request.pathParameters.status[0]
-          }
-        }
-      }
-      return {
-        'statusCode': 200,
-        'body': JSON.stringify(rv)
-      }
+      return buildResponse({ data: {} })
     }
   }
 }
