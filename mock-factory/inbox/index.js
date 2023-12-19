@@ -28,7 +28,7 @@ const PARAMS = {
   BASE_AUTHORITY: 'baseAuthority',
   AUTHORITY: 'authority',
   PATIENT_ID: 'patientId',
-  MESSAGE_ID: 'messageId',
+  MESSAGE_ID: 'messageIds',
   STATUS: 'status'
 }
 
@@ -37,10 +37,11 @@ const PARAM_DICTIONARY = {
   [PARAMS.AUTHORITY]: ["[A-Z0-9\\-]+"],
   [PARAMS.PATIENT_ID]: ["[A-Z0-9\\-]+"],
   [PARAMS.MESSAGE_ID]: ["([A-z0-9]*):-[0-9]:[0-9]:[0-9],?"],
-  [PARAMS.STATUS]: ["[A-Z0-9\\-]+"]
+  [PARAMS.STATUS]: ["[A-z0-9]*"]
 }
 
 const ROUTES = {
+
   '{authority}/patients/{patientId}/inbox/messages': {
     name: 'Get messages for patient',
     pathParameters: {
@@ -60,7 +61,7 @@ const ROUTES = {
       return buildResponse({ data })
     }
   },
-  '{authority}/patients/{patientId}/inbox/messages/{messageId}': {
+  '{authority}/patients/{patientId}/inbox/messages/{messageIds}': {
     name: 'Get message for patient',
     pathParameters: {
       [PARAMS.BASE_AUTHORITY]: PARAM_DICTIONARY[PARAMS.BASE_AUTHORITY],
@@ -79,7 +80,7 @@ const ROUTES = {
       if (request.method === 'DELETE') {
         return buildResponse({ data: { message: 'Message deleted' }, statusCode: 200 })
       }
-      const id = request.pathParameters.messageId[0].replace(/:/g, '_');
+      const id = request.pathParameters[PARAMS.MESSAGE_ID][0].replace(/:/g, '_');
       const rvData = openJsonFile('get-message-by-id', id);
       const rv = {
         ...rvData,
@@ -109,7 +110,8 @@ const ROUTES = {
       }
       return buildResponse({ data: {} })
     }
-  }
+  },
+
 }
 
 
