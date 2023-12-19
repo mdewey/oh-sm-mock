@@ -23,12 +23,11 @@ TBD
 
 ## Next
 
-- Add fake sample data
-  - Add way to add custom fake data for a request
 - Add Outbox
 - Add the rest of the endpoints
 - Refine doc
 - refine logging
+- test suite
 
 ## Someday
 

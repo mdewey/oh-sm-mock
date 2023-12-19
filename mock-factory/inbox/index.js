@@ -23,13 +23,30 @@ const buildResponse = ({ data, statusCode = 200 }) => {
   }
 }
 
+
+const PARAMS = {
+  BASE_AUTHORITY: 'baseAuthority',
+  AUTHORITY: 'authority',
+  PATIENT_ID: 'patientId',
+  MESSAGE_ID: 'messageId',
+  STATUS: 'status'
+}
+
+const PARAM_DICTIONARY = {
+  [PARAMS.BASE_AUTHORITY]: ["[A-Z0-9\\-]+"],
+  [PARAMS.AUTHORITY]: ["[A-Z0-9\\-]+"],
+  [PARAMS.PATIENT_ID]: ["[A-Z0-9\\-]+"],
+  [PARAMS.MESSAGE_ID]: ["([A-z0-9]*):-[0-9]:[0-9]:[0-9],?"],
+  [PARAMS.STATUS]: ["[A-Z0-9\\-]+"]
+}
+
 const ROUTES = {
   '{authority}/patients/{patientId}/inbox/messages': {
     name: 'Get messages for patient',
     pathParameters: {
-      'baseAuthority': ["[A-Z0-9\\-]+"],
-      'authority': ["[A-Z0-9\\-]+"],
-      'patientId': ["[A-Z0-9\\-]+"]
+      [PARAMS.BASE_AUTHORITY]: PARAM_DICTIONARY[PARAMS.BASE_AUTHORITY],
+      [PARAMS.AUTHORITY]: PARAM_DICTIONARY[PARAMS.AUTHORITY],
+      [PARAMS.PATIENT_ID]: PARAM_DICTIONARY[PARAMS.PATIENT_ID],
     },
     times: {
       'unlimited': true
@@ -46,10 +63,10 @@ const ROUTES = {
   '{authority}/patients/{patientId}/inbox/messages/{messageId}': {
     name: 'Get message for patient',
     pathParameters: {
-      'baseAuthority': ["[A-Z0-9\\-]+"],
-      'authority': ["[A-Z0-9\\-]+"],
-      'patientId': ["[A-Z0-9\\-]+"],
-      'messageId': ["([A-z0-9]*):-[0-9]:[0-9]:[0-9],?"]
+      [PARAMS.BASE_AUTHORITY]: PARAM_DICTIONARY[PARAMS.BASE_AUTHORITY],
+      [PARAMS.AUTHORITY]: PARAM_DICTIONARY[PARAMS.AUTHORITY],
+      [PARAMS.PATIENT_ID]: PARAM_DICTIONARY[PARAMS.PATIENT_ID],
+      [PARAMS.MESSAGE_ID]: PARAM_DICTIONARY[PARAMS.MESSAGE_ID],
     },
     times: {
       'unlimited': true
@@ -73,11 +90,11 @@ const ROUTES = {
   '{authority}/patients/{patientId}/inbox/messages/{messageIds}/status/{status}': {
     name: 'Update message status for patient',
     pathParameters: {
-      'baseAuthority': ["[A-Z0-9\\-]+"],
-      'authority': ["[A-Z0-9\\-]+"],
-      'patientId': ["[A-Z0-9\\-]+"],
-      'messageIds': ["[A-Z0-9\\-]+"],
-      'status': ["[A-Z0-9\\-]+"]
+      [PARAMS.BASE_AUTHORITY]: PARAM_DICTIONARY[PARAMS.BASE_AUTHORITY],
+      [PARAMS.AUTHORITY]: PARAM_DICTIONARY[PARAMS.AUTHORITY],
+      [PARAMS.PATIENT_ID]: PARAM_DICTIONARY[PARAMS.PATIENT_ID],
+      [PARAMS.MESSAGE_ID]: PARAM_DICTIONARY[PARAMS.MESSAGE_ID],
+      [PARAMS.STATUS]: PARAM_DICTIONARY[PARAMS.STATUS],
     },
     times: {
       'unlimited': true
