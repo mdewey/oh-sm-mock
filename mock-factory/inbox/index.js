@@ -1,3 +1,15 @@
+const fs = require('node:fs');
+const path = require('node:path');
+
+const openJsonFile = (fileName) => {
+  const filePath = path.join(__dirname, fileName);
+  console.log("opening file", { __dirname, filePath, fileName });
+  const data = fs.readFileSync(filePath, 'utf8');
+  const json = JSON.parse(data);
+  return json;
+}
+
+
 const ROUTES = {
   '{authority}/patients/{patientId}/inbox/messages': {
     name: 'Get messages for patient',
@@ -51,20 +63,17 @@ const ROUTES = {
           'body': ''
         }
       }
+
+      const rvData = openJsonFile('/data/get-message-by-id/default.json');
       const rv = {
-        meta: {
-          method: request.method,
-          params: {
-            'baseAuthority': request.pathParameters.baseAuthority[0],
-            'authority': request.pathParameters.authority[0],
-            'patientId': request.pathParameters.patientId[0],
-            'messageId': request.pathParameters.messageId[0]
-          }
-        }
+        ...rvData,
       }
       return {
         'statusCode': 200,
-        'body': JSON.stringify(rv)
+        'headers': {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        'body': JSON.stringify(rv),
       }
     }
   },
