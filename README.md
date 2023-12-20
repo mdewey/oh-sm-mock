@@ -28,8 +28,15 @@
 
 TBD
 
+## Questions
+
+- Param formats/types
+- The URL in the sample data suggests something different that the url in the swagger. Who is right? (check out the id url, its not `/messaging/` its `/msvc-messaging-2.0/`)
+- confirm that headers === index route
+
 ## Next
 
+- [ ] figure out the params
 - [ ] Refine doc
   - [ ] add discovery endpoint
 - [ ] refine logging
