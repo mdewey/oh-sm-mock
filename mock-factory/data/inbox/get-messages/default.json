@@ -1,54 +1,256 @@
 {
-  "messages": [
-    {
-      "idUrl": "string",
-      "id": "string",
-      "subject": "string",
-      "personSenderId": 0,
-      "personnelSenderId": 0,
-      "poolSenderId": 0,
-      "createDate": "2023-12-19T19:25:09.613Z",
-      "reminderDate": "2023-12-19T19:25:09.613Z",
-      "messageType": "MESSAGE",
-      "priority": "STAT",
-      "status": "UNREAD",
-      "attachments": [
+    "messages": [
         {
-          "name": "string",
-          "mediaIdentifier": "string",
-          "mediaVersion": 0
-        }
-      ],
-      "receivers": [
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/inbox/messages/6964070113%3A-6%3A0%3A0",
+            "id": "6964070113:-6:0:0",
+            "subject": "added a text file attachment ",
+            "personSenderId": 0,
+            "personnelSenderId": 4101606,
+            "poolSenderId": 212798041,
+            "createDate": "2019-06-18T15:55:14Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 8024185,
+                    "type": "PERSON",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "6964070113",
+            "responsiblePersonnelId": 0
+        },
         {
-          "receiverId": 0,
-          "type": "PERSONNEL",
-          "status": "UNREAD",
-          "email": {
-            "address": "string"
-          }
-        }
-      ],
-      "ccReceivers": [
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/inbox/messages/6357205621%3A-6%3A0%3A0",
+            "id": "6357205621:-6:0:0",
+            "subject": "Annual Wellness Visit Clipboard",
+            "personSenderId": 0,
+            "personnelSenderId": 2,
+            "poolSenderId": 0,
+            "createDate": "2019-05-29T22:12:42Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 8024185,
+                    "type": "PERSON",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "6357205621",
+            "responsiblePersonnelId": 2
+        },
         {
-          "receiverId": 0,
-          "type": "PERSONNEL",
-          "status": "UNREAD",
-          "email": {
-            "address": "string"
-          }
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/inbox/messages/6338638241%3A-6%3A0%3A0",
+            "id": "6338638241:-6:0:0",
+            "subject": "RE: Testing message-service subject with sean",
+            "personSenderId": 0,
+            "personnelSenderId": 2805824,
+            "poolSenderId": 17103799,
+            "createDate": "2019-05-29T20:15:12Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 8024185,
+                    "type": "PERSON",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "6338638241",
+            "responsiblePersonnelId": 0
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/inbox/messages/6333977963%3A-6%3A1%3A1",
+            "id": "6333977963:-6:1:1",
+            "subject": "test2",
+            "personSenderId": 0,
+            "personnelSenderId": 3962720,
+            "poolSenderId": 212417554,
+            "createDate": "2019-05-29T19:44:20Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "OPENED",
+            "receivers": [
+                {
+                    "receiverId": 8024185,
+                    "type": "PERSON",
+                    "status": "OPENED"
+                }
+            ],
+            "referenceId": "6333977963",
+            "responsiblePersonnelId": 0
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/inbox/messages/6314395973%3A-6%3A0%3A0",
+            "id": "6314395973:-6:0:0",
+            "subject": "Annual Wellness Visit Clipboard",
+            "personSenderId": 0,
+            "personnelSenderId": 2,
+            "poolSenderId": 0,
+            "createDate": "2019-05-28T22:16:04Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 8024185,
+                    "type": "PERSON",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "6314395973",
+            "responsiblePersonnelId": 2
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/inbox/messages/6312759107%3A-6%3A0%3A0",
+            "id": "6312759107:-6:0:0",
+            "subject": "Annual Wellness Visit Clipboard",
+            "personSenderId": 0,
+            "personnelSenderId": 2,
+            "poolSenderId": 0,
+            "createDate": "2019-05-25T01:39:26Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 8024185,
+                    "type": "PERSON",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "6312759107",
+            "responsiblePersonnelId": 2
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/inbox/messages/6312757991%3A-6%3A0%3A0",
+            "id": "6312757991:-6:0:0",
+            "subject": "Annual Wellness Visit Clipboard",
+            "personSenderId": 0,
+            "personnelSenderId": 2,
+            "poolSenderId": 0,
+            "createDate": "2019-05-25T01:28:59Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 8024185,
+                    "type": "PERSON",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "6312757991",
+            "responsiblePersonnelId": 2
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/inbox/messages/6312179961%3A-6%3A0%3A0",
+            "id": "6312179961:-6:0:0",
+            "subject": "Annual Wellness Visit Clipboard",
+            "personSenderId": 0,
+            "personnelSenderId": 2,
+            "poolSenderId": 0,
+            "createDate": "2019-05-23T16:37:07Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 8024185,
+                    "type": "PERSON",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "6312179961",
+            "responsiblePersonnelId": 2
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/inbox/messages/6311783909%3A-6%3A0%3A0",
+            "id": "6311783909:-6:0:0",
+            "subject": "testing for a second time ",
+            "personSenderId": 0,
+            "personnelSenderId": 4101606,
+            "poolSenderId": 175766701,
+            "createDate": "2019-05-22T19:35:17Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 8024185,
+                    "type": "PERSON",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "6311783909",
+            "responsiblePersonnelId": 0
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/inbox/messages/6311783449%3A-6%3A1%3A1",
+            "id": "6311783449:-6:1:1",
+            "subject": "testing here on this rainy day ",
+            "personSenderId": 0,
+            "personnelSenderId": 4101606,
+            "poolSenderId": 0,
+            "createDate": "2019-05-22T19:30:21Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "OPENED",
+            "receivers": [
+                {
+                    "receiverId": 8024185,
+                    "type": "PERSON",
+                    "status": "OPENED"
+                }
+            ],
+            "referenceId": "6311783449",
+            "responsiblePersonnelId": 0
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/inbox/messages/6306453147%3A-6%3A0%3A0",
+            "id": "6306453147:-6:0:0",
+            "subject": "Dental Consult ordered",
+            "personSenderId": 0,
+            "personnelSenderId": 11466355,
+            "poolSenderId": 0,
+            "createDate": "2019-05-10T15:44:09Z",
+            "messageType": "MESSAGE",
+            "priority": "STAT",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 8024185,
+                    "type": "PERSON",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "6306453147",
+            "responsiblePersonnelId": 0
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/inbox/messages/6305948387%3A-6%3A1%3A1",
+            "id": "6305948387:-6:1:1",
+            "subject": "Dental Consult ordered",
+            "personSenderId": 0,
+            "personnelSenderId": 3966568,
+            "poolSenderId": 0,
+            "createDate": "2019-05-09T16:53:21Z",
+            "messageType": "MESSAGE",
+            "priority": "STAT",
+            "status": "OPENED",
+            "receivers": [
+                {
+                    "receiverId": 8024185,
+                    "type": "PERSON",
+                    "status": "OPENED"
+                }
+            ],
+            "referenceId": "6305948387",
+            "responsiblePersonnelId": 0
         }
-      ],
-      "referenceId": "string",
-      "emailSender": {
-        "address": "string"
-      },
-      "sensitivity": {
-        "portalUserUUIDs": [
-          "string"
-        ]
-      },
-      "responsiblePersonnelId": 0
-    }
-  ]
+    ]
 }

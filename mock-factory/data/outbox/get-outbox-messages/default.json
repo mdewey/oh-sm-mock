@@ -1,54 +1,319 @@
 {
-  "messages": [
-    {
-      "idUrl": "string",
-      "id": "string",
-      "subject": "string",
-      "personSenderId": 0,
-      "personnelSenderId": 0,
-      "poolSenderId": 0,
-      "createDate": "2023-12-20T19:54:23.493Z",
-      "reminderDate": "2023-12-20T19:54:23.493Z",
-      "messageType": "MESSAGE",
-      "priority": "STAT",
-      "status": "UNREAD",
-      "attachments": [
+    "messages": [
         {
-          "name": "string",
-          "mediaIdentifier": "string",
-          "mediaVersion": 0
-        }
-      ],
-      "receivers": [
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/outbox/messages/7093382967%3A-4%3A0%3A0",
+            "id": "7093382967:-4:0:0",
+            "subject": "Testing message-service subject",
+            "personSenderId": 8024185,
+            "personnelSenderId": 0,
+            "poolSenderId": 0,
+            "createDate": "2019-06-19T15:26:50Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 3912146,
+                    "type": "PERSONNEL",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "7093382967",
+            "responsiblePersonnelId": 0
+        },
         {
-          "receiverId": 0,
-          "type": "PERSONNEL",
-          "status": "UNREAD",
-          "email": {
-            "address": "string"
-          }
-        }
-      ],
-      "ccReceivers": [
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/outbox/messages/7093309585%3A-4%3A0%3A0",
+            "id": "7093309585:-4:0:0",
+            "subject": "Testing message-service subject",
+            "personSenderId": 8024185,
+            "personnelSenderId": 0,
+            "poolSenderId": 0,
+            "createDate": "2019-06-19T15:26:13Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 17103799,
+                    "type": "EMAIL",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "7093309585",
+            "responsiblePersonnelId": 0
+        },
         {
-          "receiverId": 0,
-          "type": "PERSONNEL",
-          "status": "UNREAD",
-          "email": {
-            "address": "string"
-          }
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/outbox/messages/6337953303%3A-4%3A2%3A0",
+            "id": "6337953303:-4:2:0",
+            "subject": "Testing message-service subject with sean",
+            "personSenderId": 8024185,
+            "personnelSenderId": 0,
+            "poolSenderId": 0,
+            "createDate": "2019-05-29T20:10:16Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 17103799,
+                    "type": "POOL",
+                    "status": "OPENED"
+                }
+            ],
+            "referenceId": "6337953303",
+            "responsiblePersonnelId": 0
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/outbox/messages/6334168559%3A-4%3A0%3A0",
+            "id": "6334168559:-4:0:0",
+            "subject": "RE: test2",
+            "personSenderId": 8024185,
+            "personnelSenderId": 0,
+            "poolSenderId": 0,
+            "createDate": "2019-05-29T19:46:26Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 212417554,
+                    "type": "POOL",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "6334168559",
+            "responsiblePersonnelId": 0
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/outbox/messages/6332868139%3A-4%3A0%3A0",
+            "id": "6332868139:-4:0:0",
+            "subject": "Anticoagulation YYT Clinic: test message",
+            "personSenderId": 8024185,
+            "personnelSenderId": 0,
+            "poolSenderId": 0,
+            "createDate": "2019-05-29T19:35:26Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 212417554,
+                    "type": "POOL",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "6332868139",
+            "responsiblePersonnelId": 3955604
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/outbox/messages/6313413591%3A-4%3A0%3A0",
+            "id": "6313413591:-4:0:0",
+            "subject": "Test messaging-service on ose DFD DEV",
+            "personSenderId": 8024185,
+            "personnelSenderId": 0,
+            "poolSenderId": 0,
+            "createDate": "2019-05-26T14:58:19Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 4101606,
+                    "type": "PERSONNEL",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "6313413591",
+            "responsiblePersonnelId": 0
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/outbox/messages/6313085861%3A-4%3A0%3A0",
+            "id": "6313085861:-4:0:0",
+            "subject": "Testing message-service subject",
+            "personSenderId": 8024185,
+            "personnelSenderId": 0,
+            "poolSenderId": 0,
+            "createDate": "2019-05-25T20:54:31Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 17103799,
+                    "type": "POOL",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "6313085861",
+            "responsiblePersonnelId": 0
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/outbox/messages/6313085853%3A-4%3A0%3A0",
+            "id": "6313085853:-4:0:0",
+            "subject": "Testing message-service subject",
+            "personSenderId": 8024185,
+            "personnelSenderId": 0,
+            "poolSenderId": 0,
+            "createDate": "2019-05-25T20:53:33Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 17103799,
+                    "type": "POOL",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "6313085853",
+            "responsiblePersonnelId": 0
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/outbox/messages/6313083161%3A-4%3A0%3A0",
+            "id": "6313083161:-4:0:0",
+            "subject": "Testing message-service subject",
+            "personSenderId": 8024185,
+            "personnelSenderId": 0,
+            "poolSenderId": 0,
+            "createDate": "2019-05-25T20:41:44Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 17103799,
+                    "type": "POOL",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "6313083161",
+            "responsiblePersonnelId": 0
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/outbox/messages/6312654537%3A-4%3A0%3A0",
+            "id": "6312654537:-4:0:0",
+            "subject": "Test messaging-service",
+            "personSenderId": 8024185,
+            "personnelSenderId": 0,
+            "poolSenderId": 0,
+            "createDate": "2019-05-24T20:14:11Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 4101606,
+                    "type": "PERSONNEL",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "6312654537",
+            "responsiblePersonnelId": 0
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/outbox/messages/6312645273%3A-4%3A1%3A0",
+            "id": "6312645273:-4:1:0",
+            "subject": "AHH! It is still raining",
+            "personSenderId": 8024185,
+            "personnelSenderId": 0,
+            "poolSenderId": 0,
+            "createDate": "2019-05-24T19:00:17Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 17103799,
+                    "type": "POOL",
+                    "status": "OPENED"
+                }
+            ],
+            "referenceId": "6312645273",
+            "responsiblePersonnelId": 0
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/outbox/messages/6312640537%3A-4%3A0%3A0",
+            "id": "6312640537:-4:0:0",
+            "subject": "HELP! It is still raining",
+            "personSenderId": 8024185,
+            "personnelSenderId": 0,
+            "poolSenderId": 0,
+            "createDate": "2019-05-24T18:37:10Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 3911636,
+                    "type": "PERSONNEL",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "6312640537",
+            "responsiblePersonnelId": 0
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/outbox/messages/6312637275%3A-4%3A0%3A0",
+            "id": "6312637275:-4:0:0",
+            "subject": "It is still raining",
+            "personSenderId": 8024185,
+            "personnelSenderId": 0,
+            "poolSenderId": 0,
+            "createDate": "2019-05-24T18:26:44Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 4101606,
+                    "type": "PERSONNEL",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "6312637275",
+            "responsiblePersonnelId": 0
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/outbox/messages/6311789897%3A-4%3A0%3A0",
+            "id": "6311789897:-4:0:0",
+            "subject": "RE: testing here on this rainy day",
+            "personSenderId": 8024185,
+            "personnelSenderId": 0,
+            "poolSenderId": 0,
+            "createDate": "2019-05-22T20:19:43Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 4101606,
+                    "type": "PERSONNEL",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "6311789897",
+            "responsiblePersonnelId": 0
+        },
+        {
+            "idUrl": "http://ihcuteanp6.cernerworkswan.com/msvc-messaging-2.0/c351.ihc_ut.cernerasp.com/service/c351.ihc_ut.cernerasp.com/patients/8024185/outbox/messages/6311789509%3A-4%3A0%3A0",
+            "id": "6311789509:-4:0:0",
+            "subject": "Taylor, David Pearson - My Health Test Clinic: a message from the patient on this gloomy day",
+            "personSenderId": 8024185,
+            "personnelSenderId": 0,
+            "poolSenderId": 0,
+            "createDate": "2019-05-22T20:17:38Z",
+            "messageType": "MESSAGE",
+            "priority": "ROUTINE",
+            "status": "UNREAD",
+            "receivers": [
+                {
+                    "receiverId": 3686272,
+                    "type": "POOL",
+                    "status": "UNREAD"
+                }
+            ],
+            "referenceId": "6311789509",
+            "responsiblePersonnelId": 3922660
         }
-      ],
-      "referenceId": "string",
-      "emailSender": {
-        "address": "string"
-      },
-      "sensitivity": {
-        "portalUserUUIDs": [
-          "string"
-        ]
-      },
-      "responsiblePersonnelId": 0
-    }
-  ]
+    ]
 }
