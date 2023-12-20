@@ -31,8 +31,30 @@ const ROUTES = {
       return buildResponse({ data });
     }
   },
-
-
+  '{authority}/patients/{patientId}/outbox/messages/{messageIds}': {
+    name: 'GET - Retrieves sent items for a patient recipient',
+    pathParameters: {
+      [PARAMS.BASE_AUTHORITY]: PARAM_DICTIONARY[PARAMS.BASE_AUTHORITY],
+      [PARAMS.AUTHORITY]: PARAM_DICTIONARY[PARAMS.AUTHORITY],
+      [PARAMS.PATIENT_ID]: PARAM_DICTIONARY[PARAMS.PATIENT_ID],
+      [PARAMS.MESSAGE_ID]: PARAM_DICTIONARY[PARAMS.MESSAGE_ID],
+    },
+    times: {
+      'unlimited': true
+    },
+    callback: function (request) {
+      console.log('GET messages for patient', { request });
+      if (request.method !== 'GET') {
+        return buildResponse({ data: { error: 'Method not allowed' }, statusCode: 405 })
+      }
+      const id = request.pathParameters[PARAMS.MESSAGE_ID][0].replace(/:/g, '_');
+      const rvData = openJsonFile('outbox/get-messages-by-id', id);
+      const rv = {
+        ...rvData,
+      }
+      return buildResponse({ data: rv })
+    }
+  },
 }
 
 
