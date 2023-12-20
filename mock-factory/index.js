@@ -1,8 +1,9 @@
 const INBOX = require('./inbox');
-
+const OUTBOX = require('./outbox');
 
 const SCHEMA = {
-  ...INBOX
+  ...INBOX,
+  ...OUTBOX
 }
 
 class MessagingApiMock {
