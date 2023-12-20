@@ -1,44 +1,7 @@
-const fs = require('node:fs');
-const path = require('node:path');
-
-const openJsonFile = (folder, fileSlug) => {
-  const defaultPath = path.join(__dirname, `/data/${folder}/default.json`);
-  const messagePath = path.join(__dirname, `/data/${folder}/${fileSlug}.json`);
-  console.log("opening file", { __dirname, fileSlug, messagePath, defaultPath });
-  // check if file exists
-  const pathToOpen = fs.existsSync(messagePath) ? messagePath : defaultPath;
-  console.log("opening file", { pathToOpen });
-  const data = fs.readFileSync(pathToOpen, 'utf8');
-  const json = JSON.parse(data);
-  return json;
-}
-
-const buildResponse = ({ data, statusCode = 200 }) => {
-  return {
-    statusCode,
-    'headers': {
-      "Content-Type": "application/json; charset=utf-8"
-    },
-    'body': JSON.stringify(data),
-  }
-}
+const { buildResponse, PARAMS, PARAM_DICTIONARY, openJsonFile } = require('../utils');
 
 
-const PARAMS = {
-  BASE_AUTHORITY: 'baseAuthority',
-  AUTHORITY: 'authority',
-  PATIENT_ID: 'patientId',
-  MESSAGE_ID: 'messageIds',
-  STATUS: 'status'
-}
 
-const PARAM_DICTIONARY = {
-  [PARAMS.BASE_AUTHORITY]: ["[A-Z0-9\\-]+"],
-  [PARAMS.AUTHORITY]: ["[A-Z0-9\\-]+"],
-  [PARAMS.PATIENT_ID]: ["[A-Z0-9\\-]+"],
-  [PARAMS.MESSAGE_ID]: ["([A-z0-9]*):-[0-9]:[0-9]:[0-9],?"],
-  [PARAMS.STATUS]: ["[A-z0-9]*"]
-}
 
 const ROUTES = {
 
@@ -57,7 +20,7 @@ const ROUTES = {
       if (request.method !== 'GET') {
         return buildResponse({ data: { error: 'Method not allowed' }, statusCode: 405 })
       }
-      const data = openJsonFile('get-messages', 'default');
+      const data = openJsonFile('inbox/get-messages', 'default');
       return buildResponse({ data })
     }
   },
@@ -81,7 +44,7 @@ const ROUTES = {
         return buildResponse({ data: { message: 'Message deleted' }, statusCode: 200 })
       }
       const id = request.pathParameters[PARAMS.MESSAGE_ID][0].replace(/:/g, '_');
-      const rvData = openJsonFile('get-message-by-id', id);
+      const rvData = openJsonFile('inbox/get-message-by-id', id);
       const rv = {
         ...rvData,
       }

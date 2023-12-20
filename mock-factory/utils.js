@@ -1,0 +1,51 @@
+const fs = require('node:fs');
+const path = require('node:path');
+
+
+const buildResponse = ({ data, statusCode = 200 }) => {
+  return {
+    statusCode,
+    'headers': {
+      "Content-Type": "application/json; charset=utf-8"
+    },
+    'body': JSON.stringify(data),
+  }
+}
+
+
+const PARAMS = {
+  BASE_AUTHORITY: 'baseAuthority',
+  AUTHORITY: 'authority',
+  PATIENT_ID: 'patientId',
+  MESSAGE_ID: 'messageIds',
+  STATUS: 'status'
+}
+
+const PARAM_DICTIONARY = {
+  [PARAMS.BASE_AUTHORITY]: ["[A-Z0-9\\-]+"],
+  [PARAMS.AUTHORITY]: ["[A-Z0-9\\-]+"],
+  [PARAMS.PATIENT_ID]: ["[A-Z0-9\\-]+"],
+  [PARAMS.MESSAGE_ID]: ["([A-z0-9]*):-[0-9]:[0-9]:[0-9],?"],
+  [PARAMS.STATUS]: ["[A-z0-9]*"]
+}
+
+
+const openJsonFile = (folder, fileSlug) => {
+  const defaultPath = path.join(__dirname, `/data/${folder}/default.json`);
+  const messagePath = path.join(__dirname, `/data/${folder}/${fileSlug}.json`);
+  console.log("opening file", { __dirname, fileSlug, messagePath, defaultPath });
+  // check if file exists
+  const pathToOpen = fs.existsSync(messagePath) ? messagePath : defaultPath;
+  console.log("opening file", { pathToOpen });
+  const data = fs.readFileSync(pathToOpen, 'utf8');
+  const json = JSON.parse(data);
+  return json;
+}
+
+
+module.exports = {
+  buildResponse,
+  PARAMS,
+  PARAM_DICTIONARY,
+  openJsonFile
+}

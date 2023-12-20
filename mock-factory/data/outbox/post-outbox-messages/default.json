@@ -1,0 +1,38 @@
+{
+  "patientId": 0,
+  "receivers": [
+    {
+      "receiverId": 0,
+      "type": "PERSONNEL",
+      "email": {
+        "address": "string"
+      }
+    }
+  ],
+  "ccReceivers": [
+    {
+      "receiverId": 0,
+      "type": "PERSONNEL",
+      "email": {
+        "address": "string"
+      }
+    }
+  ],
+  "previousMessageId": "string",
+  "text": "string",
+  "formatType": "UNKNOWN",
+  "subject": "string",
+  "attachments": [
+    {
+      "name": "string",
+      "mediaIdentifier": "string",
+      "mediaVersion": 0
+    }
+  ],
+  "sensitivity": {
+    "portalUserUUIDs": [
+      "string"
+    ]
+  },
+  "responsiblePersonnelId": 0
+}
