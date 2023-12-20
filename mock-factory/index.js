@@ -1,9 +1,11 @@
 const INBOX = require('./routes/inbox');
 const OUTBOX = require('./routes/outbox');
+const PERSONNEL = require('./routes/personnel');
 
 const SCHEMA = {
   ...INBOX,
-  ...OUTBOX
+  ...OUTBOX,
+  ...PERSONNEL,
 }
 
 class MessagingApiMock {
