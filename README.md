@@ -4,12 +4,19 @@
 
 ## Endpoints Created
 
-> note this do not return sample data yet, just responses
+> note this do not return sample data yet, just responses from the swagger
 
 - GET {authority}/patients/{patientId}/inbox/messages
 - GET {authority}/patients/{patientId}/inbox/messages/{messageId}
 - DELETE {authority}/patients/{patientId}/inbox/messages/{messageId}
 - PUT {authority}/patients/{patientId}/inbox/messages/{messageIds}/status/{status}
+- GET {authority}/patients/{patientId}/outbox/messages
+- POST {authority}/patients/{patientId}/outbox/messages
+- GET {authority}/patients/{patientId}/outbox/messages/{messageIds}
+- GET {authority}/personnel/{personnelIds}/recipient-access
+- GET {authority}/pools
+- GET {authority}/pools/{poolIds}
+- GET {authority}/pools/{poolIds}/recipient-access
 
 ## How to run
 
@@ -23,19 +30,18 @@ TBD
 
 ## Next
 
-- Add Outbox
-- Add the rest of the endpoints
 - Refine doc
   - add discovery endpoint
 - refine logging
 - test suite
 - move times to route of mock
+- port to env variable
+- add linting
 
 ## Someday
 
 - mimic auth?
-- add linting and other dev UX stuff
-- add a in memory db to manipluate data?
+- add a in memory db to manipulate data?
 - Create from swagger
 - move away from mock-server?
 - add atom push endpoint?
