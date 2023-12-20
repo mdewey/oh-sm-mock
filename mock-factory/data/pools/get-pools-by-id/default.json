@@ -1,0 +1,19 @@
+{
+  "poolsById": {
+    "additionalProp1": {
+      "id": 0,
+      "idUrl": "string",
+      "name": "string"
+    },
+    "additionalProp2": {
+      "id": 0,
+      "idUrl": "string",
+      "name": "string"
+    },
+    "additionalProp3": {
+      "id": 0,
+      "idUrl": "string",
+      "name": "string"
+    }
+  }
+}

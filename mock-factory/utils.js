@@ -19,7 +19,8 @@ const PARAMS = {
   PATIENT_ID: 'patientId',
   MESSAGE_ID: 'messageIds',
   STATUS: 'status',
-  PERSONNEL_ID: 'personnelIds'
+  PERSONNEL_ID: 'personnelIds',
+  POOL_ID: 'poolIds',
 }
 
 const PARAM_DICTIONARY = {
@@ -29,6 +30,7 @@ const PARAM_DICTIONARY = {
   [PARAMS.MESSAGE_ID]: ["([A-z0-9]*):-[0-9]:[0-9]:[0-9],?"],
   [PARAMS.STATUS]: ["[A-z0-9]*"],
   [PARAMS.PERSONNEL_ID]: ["[A-z0-9]*,?"],
+  [PARAMS.POOL_ID]: ["[A-z0-9]*,?"],
 }
 
 
