@@ -30,21 +30,23 @@ TBD
 
 ## Next
 
-- Refine doc
-  - add discovery endpoint
-- refine logging
-- test suite
-- move times to route of mock
-- port to env variable
-- add linting
+- [ ] Refine doc
+  - [ ] add discovery endpoint
+- [ ] refine logging
+- [ ] move to VA github
+  - [ ] convert these to tickets
+- [ ] test suite
+- [ ] move times to route of mock
+- [ ] add port to env variable
+- [ ] add linting
 
 ## Someday
 
-- mimic auth?
-- add a in memory db to manipulate data?
-- Create from swagger
-- move away from mock-server?
-- add atom push endpoint?
+- [ ] mimic auth?
+- [ ] add a in memory db to manipulate data?
+- [ ] Create from swagger
+- [ ] move away from mock-server?
+- [ ] add atom push endpoint?
 
 ## Notes
 
