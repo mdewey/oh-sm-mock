@@ -1,5 +1,5 @@
-const INBOX = require('./inbox');
-const OUTBOX = require('./outbox');
+const INBOX = require('./routes/inbox');
+const OUTBOX = require('./routes/outbox');
 
 const SCHEMA = {
   ...INBOX,

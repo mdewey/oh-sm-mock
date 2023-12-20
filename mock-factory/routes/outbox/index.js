@@ -1,8 +1,4 @@
-const fs = require('node:fs');
-const path = require('node:path');
-
-const { buildResponse, PARAMS, PARAM_DICTIONARY, openJsonFile } = require('../utils');
-
+const { buildResponse, PARAMS, PARAM_DICTIONARY, openJsonFile } = require('../../utils');
 
 const ROUTES = {
   '{authority}/patients/{patientId}/outbox/messages': {

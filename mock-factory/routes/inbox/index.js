@@ -1,7 +1,4 @@
-const { buildResponse, PARAMS, PARAM_DICTIONARY, openJsonFile } = require('../utils');
-
-
-
+const { buildResponse, PARAMS, PARAM_DICTIONARY, openJsonFile } = require('../../utils');
 
 const ROUTES = {
 
