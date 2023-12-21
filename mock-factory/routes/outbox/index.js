@@ -1,4 +1,10 @@
-const { buildResponse, PARAMS, PARAM_DICTIONARY, openJsonFile } = require('../../utils');
+/* eslint-disable no-console */
+const {
+  buildResponse,
+  PARAMS,
+  PARAM_DICTIONARY,
+  openJsonFile,
+} = require('../../utils');
 
 const ROUTES = {
   '{authority}/patients/{patientId}/outbox/messages': {
@@ -9,12 +15,15 @@ const ROUTES = {
       [PARAMS.PATIENT_ID]: PARAM_DICTIONARY[PARAMS.PATIENT_ID],
     },
     times: {
-      'unlimited': true
+      unlimited: true,
     },
-    callback: function (request) {
+    callback(request) {
       console.log('GET messages for patient', { request });
       if (request.method !== 'GET' && request.method !== 'POST') {
-        return buildResponse({ data: { error: 'Method not allowed' }, statusCode: 405 })
+        return buildResponse({
+          data: { error: 'Method not allowed' },
+          statusCode: 405,
+        });
       }
 
       if (request.method === 'POST') {
@@ -22,10 +31,9 @@ const ROUTES = {
         return buildResponse({ data, statusCode: 201 });
       }
 
-
       const data = openJsonFile('outbox/get-outbox-messages', 'default');
       return buildResponse({ data });
-    }
+    },
   },
   '{authority}/patients/{patientId}/outbox/messages/{messageIds}': {
     name: 'GET - Retrieves sent items for a patient recipient',
@@ -36,22 +44,27 @@ const ROUTES = {
       [PARAMS.MESSAGE_ID]: PARAM_DICTIONARY[PARAMS.MESSAGE_ID],
     },
     times: {
-      'unlimited': true
+      unlimited: true,
     },
-    callback: function (request) {
+    callback(request) {
       console.log('GET messages for patient', { request });
       if (request.method !== 'GET') {
-        return buildResponse({ data: { error: 'Method not allowed' }, statusCode: 405 })
+        return buildResponse({
+          data: { error: 'Method not allowed' },
+          statusCode: 405,
+        });
       }
-      const id = request.pathParameters[PARAMS.MESSAGE_ID][0].replace(/:/g, '_');
+      const id = request.pathParameters[PARAMS.MESSAGE_ID][0].replace(
+        /:/g,
+        '_',
+      );
       const rvData = openJsonFile('outbox/get-messages-by-id', id);
       const rv = {
         ...rvData,
-      }
-      return buildResponse({ data: rv })
-    }
+      };
+      return buildResponse({ data: rv });
+    },
   },
-}
-
+};
 
 module.exports = ROUTES;

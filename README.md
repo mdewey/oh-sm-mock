@@ -91,4 +91,4 @@ We are looking to expand how the data is stored to use the patient id as well to
 
 Can not use out of the box integration due to not binge able to specify the return data past one example in the swagger.
 
-Refer to the ticket [MHV-52692](https://jira.devops.va.gov/browse/MHV-52692) for a full breakdown.  
+Refer to the ticket [MHV-52692](https://jira.devops.va.gov/browse/MHV-52692) for a full breakdown.
