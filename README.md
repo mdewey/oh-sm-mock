@@ -24,7 +24,6 @@ Returns the sample data given by the BCG team and what is in the swagger docs
 - GET {authority}/patients/{patientId}/inbox/messages/{messageId}
 - DELETE {authority}/patients/{patientId}/inbox/messages/{messageId}
 - PUT {authority}/patients/{patientId}/inbox/messages/{messageIds}/status/{status}
-
 - GET {authority}/patients/{patientId}/outbox/messages
 - POST {authority}/patients/{patientId}/outbox/messages
 - GET {authority}/patients/{patientId}/outbox/messages/{messageIds}
@@ -73,8 +72,7 @@ We are looking to expand how the data is stored to use the patient id as well to
 - [ ] Refine doc
   - [ ] add discovery endpoint
 - [ ] refine logging
-- [x] move to VA github
-  - [ ] convert these to tickets
+- [ ] convert these to tickets
 - [ ] test suite
 - [ ] move times to route of mock
 - [ ] add port to env variable
