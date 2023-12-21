@@ -12,5 +12,10 @@
     "mockserver-client": "^5.15.0",
     "mockserver-node": "^5.15.0",
     "nodemon": "^3.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1"
   }
 }
