@@ -1,65 +1,65 @@
 ---
-swagger: "2.0"
+swagger: '2.0'
 info:
-  version: "10.8-SNAPSHOT"
-  title: "Millennium Messaging Web Services"
-host: "[host]"
-basePath: "/messaging/[authority]/service"
+  version: '10.8-SNAPSHOT'
+  title: 'Millennium Messaging Web Services'
+host: '[host]'
+basePath: '/messaging/[authority]/service'
 schemes:
-  - "http"
+  - 'http'
 paths:
   /{authority}/inbox/messages:
     get:
-      summary: "Retrieves messages by patient alias. Redirects to /{authority}/patients/{patientId}/inbox/messages."
+      summary: 'Retrieves messages by patient alias. Redirects to /{authority}/patients/{patientId}/inbox/messages.'
       description:
         "A user authenticated using the CareAware OAuth implementation\
         \ is required. The authority provided in the URI must match the authority\
         \ provided in the Authorization request header. Example URI :- http://localhost:8080/messaging/{authority}/service/{authority}/inbox/messages?aliasPoolCd=61598288&patientAlias=TESTINGALIAS1&aliasTypeCd=4168238"
-      operationId: "retrieveAsJson"
+      operationId: 'retrieveAsJson'
       produces:
-        - "application/json"
+        - 'application/json'
       parameters:
-        - name: "Cerner-Correlation-Id"
-          in: "header"
-          description: "Transaction identifier to assist with troubleshooting."
+        - name: 'Cerner-Correlation-Id'
+          in: 'header'
+          description: 'Transaction identifier to assist with troubleshooting.'
           required: false
-          type: "string"
-        - name: "Accept-Language"
-          in: "header"
+          type: 'string'
+        - name: 'Accept-Language'
+          in: 'header'
           description:
             "Used to internationalize any error messages that may be included\
             \ in the response."
           required: false
-          type: "string"
-        - name: "patientAlias"
-          in: "query"
+          type: 'string'
+        - name: 'patientAlias'
+          in: 'query'
           description:
             "The alias identifier of the patient whose messages are to be\
             \ retrieved. This is required and must be non-blank."
           required: true
-          type: "string"
-        - name: "aliasTypeCd"
-          in: "query"
+          type: 'string'
+        - name: 'aliasTypeCd'
+          in: 'query'
           description:
             "The identifier indicating the type of patientAlias. This is\
             \ required and must represent a valid alias type."
           required: true
-          type: "string"
-        - name: "aliasPoolCd"
-          in: "query"
+          type: 'string'
+        - name: 'aliasPoolCd'
+          in: 'query'
           description:
             "The identifier of the alias pool defining the set of characters\
             \ and rules which compose the patientAlias. This is required and must represent\
             \ a valid alias pool."
           required: true
-          type: "string"
-        - name: "authority"
-          in: "path"
+          type: 'string'
+        - name: 'authority'
+          in: 'path'
           description:
             "The authority from which the patient's messages are to be retrieved.\
             \ This path value must be non-blank and represent a valid authority."
           required: true
-          type: "string"
+          type: 'string'
       responses:
         303:
           description:
@@ -67,14 +67,14 @@ paths:
             \ messages."
           headers:
             Location:
-              type: "string"
+              type: 'string'
               description:
                 "For a valid request this header will indicate the redirected\
                 \ location of the patient's messages in the following pattern: /{authority}/patients/{patientId}/inbox/messages."
         400:
-          description: "The request does not meet the documented requirements."
+          description: 'The request does not meet the documented requirements.'
         401:
-          description: "An HTTP authentication challenge was issued or failed."
+          description: 'An HTTP authentication challenge was issued or failed.'
         403:
           description:
             "The authority within the URI is not equal to the authority\
@@ -84,55 +84,55 @@ paths:
             "The authority path parameter does not represent an actual\
             \ authority in the system."
         500:
-          description: "Errors occurred while retrieving the messages, causing a failure."
+          description: 'Errors occurred while retrieving the messages, causing a failure.'
       deprecated: true
   /{authority}/outbox/messages:
     get:
-      summary: "Retrieves outbox messages by patient alias. Redirects to /{authority}/patients/{patientId}/outbox/messages"
+      summary: 'Retrieves outbox messages by patient alias. Redirects to /{authority}/patients/{patientId}/outbox/messages'
       description:
         "A user authenticated using the CareAware OAuth implementation\
         \ is required.The authority provided in the URI must match the authority provided\
         \ in the Authorization request header.Example URI :- http://localhost:8080/messaging/{authority}/service/{authority}/outbox/messages?aliasPoolCd=61598288&patientAlias=TESTINGALIAS1&aliasTypeCd=4168238"
-      operationId: "retrieveBySenderAsJson"
+      operationId: 'retrieveBySenderAsJson'
       produces:
-        - "application/json"
+        - 'application/json'
       parameters:
-        - name: "Accept-Language"
-          in: "header"
+        - name: 'Accept-Language'
+          in: 'header'
           description:
             "Used to internationalize any error messages that may be included\
             \ in the response."
           required: false
-          type: "string"
-        - name: "authority"
-          in: "path"
+          type: 'string'
+        - name: 'authority'
+          in: 'path'
           description:
             "The authority from which the patient's messages are to be retrieved.\
             \ Must be non-blank and represent a valid authority."
           required: true
-          type: "string"
-        - name: "patientAlias"
-          in: "query"
+          type: 'string'
+        - name: 'patientAlias'
+          in: 'query'
           description:
             "The alias identifier of the patient whose messages are to be\
             \ retrieved.  Must be non-blank."
           required: true
-          type: "string"
-        - name: "aliasTypeCd"
-          in: "query"
+          type: 'string'
+        - name: 'aliasTypeCd'
+          in: 'query'
           description:
             "The identifier indicating the type of patientAlias. Must represent\
             \ a valid alias type."
           required: true
-          type: "string"
-        - name: "aliasPoolCd"
-          in: "query"
+          type: 'string'
+        - name: 'aliasPoolCd'
+          in: 'query'
           description:
             "The identifier of the alias pool defining the set of characters\
             \ and rules which compose the patientAlias. Must represent a valid alias\
             \ pool."
           required: true
-          type: "string"
+          type: 'string'
       responses:
         303:
           description:
@@ -140,14 +140,14 @@ paths:
             \ messages."
           headers:
             Location:
-              type: "string"
+              type: 'string'
               description:
                 "For a valid request this header will indicate the redirected\
                 \ location of the patient's messages in the following pattern: /{authority}/patients/{patientId}/outbox/messages."
         400:
-          description: "The request does not meet the documented requirements."
+          description: 'The request does not meet the documented requirements.'
         401:
-          description: "An HTTP authentication challenge was issued or failed."
+          description: 'An HTTP authentication challenge was issued or failed.'
         403:
           description:
             "The authority within the URI is not equal to the authority\
@@ -157,107 +157,107 @@ paths:
             "The authority path parameter does not represent an actual\
             \ authority in the system."
         500:
-          description: "Errors occurred while retrieving the messages, causing a failure."
+          description: 'Errors occurred while retrieving the messages, causing a failure.'
       deprecated: true
   /{authority}/patients/{patientId}/inbox/messages:
     get:
-      summary: "The service retrieves messages by patient recipient."
+      summary: 'The service retrieves messages by patient recipient.'
       description:
         "A user authenticated using the CareAware OAuth implementation\
         \ is required. The authority provided in the URI must match the authority\
         \ provided in the Authorization request header. Example URI:- http://localhost:8080/messaging/{authority}/service/{authority}/patients/7929590/inbox/messages"
-      operationId: "retrieveInboxMessagesForRetrievedMessageByRecipientAsJson"
+      operationId: 'retrieveInboxMessagesForRetrievedMessageByRecipientAsJson'
       produces:
-        - "application/json"
+        - 'application/json'
       parameters:
-        - name: "Cerner-Correlation-Id"
-          in: "header"
-          description: "Transaction identifier to assist with troubleshooting."
+        - name: 'Cerner-Correlation-Id'
+          in: 'header'
+          description: 'Transaction identifier to assist with troubleshooting.'
           required: false
-          type: "string"
-        - name: "Accept-Charset"
-          in: "header"
-          description: "Accept-Charset header to use when encoding the response data."
+          type: 'string'
+        - name: 'Accept-Charset'
+          in: 'header'
+          description: 'Accept-Charset header to use when encoding the response data.'
           required: false
-          type: "string"
-          default: "UTF-8"
+          type: 'string'
+          default: 'UTF-8'
           enum:
-            - "UTF-8"
-            - "UTF-16"
-            - "UTF-16BE"
-            - "UTF-16LE"
-        - name: "Accept-Language"
-          in: "header"
+            - 'UTF-8'
+            - 'UTF-16'
+            - 'UTF-16BE'
+            - 'UTF-16LE'
+        - name: 'Accept-Language'
+          in: 'header'
           description:
             "Used to internationalize any error messages that may be included\
             \ in the response."
           required: false
-          type: "string"
-        - name: "authority"
-          in: "path"
+          type: 'string'
+        - name: 'authority'
+          in: 'path'
           description:
             "The authority from which the patient's messages are to be retrieved.\
             \ This path value must be non-blank and represent a valid authority."
           required: true
-          type: "string"
-        - name: "patientId"
-          in: "path"
+          type: 'string'
+        - name: 'patientId'
+          in: 'path'
           description:
             "The identifier of the patient whose messages are to be retrieved.\
             \ This path value must be non-blank and represent a valid patient identifier."
           required: true
-          type: "string"
-        - name: "beginDate"
-          in: "query"
+          type: 'string'
+        - name: 'beginDate'
+          in: 'query'
           description:
             "The beginning date in the query date range for messages to be\
             \ retrieved. Must be before the endDate.The ISO 8601 'Combined date and\
             \ time in UTC' format is used to specify the date and time value, excluding\
             \ milliseconds."
           required: false
-          type: "string"
-          default: "90 days prior to current date/time"
-        - name: "endDate"
-          in: "query"
+          type: 'string'
+          default: '90 days prior to current date/time'
+        - name: 'endDate'
+          in: 'query'
           description:
             "The ending date in the query date range for messages to be retrieved.\
             \ Must be after the beginDate.The ISO 8601 'Combined date and time in UTC'\
             \ format is used to specify the date and time value, excluding milliseconds."
           required: false
-          type: "string"
-          default: "current date/time"
-        - name: "statuses"
-          in: "query"
+          type: 'string'
+          default: 'current date/time'
+        - name: 'statuses'
+          in: 'query'
           description:
             "A comma delimited list containing the statuses of messages to\
             \ be retrieved."
           required: false
-          type: "string"
-          default: "UNREAD, OPEN, ONHOLD"
+          type: 'string'
+          default: 'UNREAD, OPEN, ONHOLD'
           enum:
-            - "UNREAD"
-            - "OPEN"
-            - "ONHOLD"
-            - "DELETED"
-        - name: "types"
-          in: "query"
+            - 'UNREAD'
+            - 'OPEN'
+            - 'ONHOLD'
+            - 'DELETED'
+        - name: 'types'
+          in: 'query'
           description:
             "A comma delimited list containing the types of messages to be\
             \ retrieved."
           required: false
-          type: "string"
-          default: "MESSAGE, REMINDER"
+          type: 'string'
+          default: 'MESSAGE, REMINDER'
           enum:
-            - "MESSAGE"
-            - "REMINDER"
+            - 'MESSAGE'
+            - 'REMINDER'
       responses:
         200:
-          description: "The messages were successfully retrieved."
+          description: 'The messages were successfully retrieved.'
           schema:
-            $ref: "#/definitions/Messages"
+            $ref: '#/definitions/Messages'
           headers:
             Content-Type:
-              type: "string"
+              type: 'string'
               description:
                 "Contains the format in which the response entity is encoded.\
                 \ If not specified in the Accept-Charset request header, the response\
@@ -268,14 +268,14 @@ paths:
             \ been combined."
           headers:
             Location:
-              type: "string"
+              type: 'string'
               description:
                 "For a valid request this header will indicate that the\
                 \ patient has been combined and in the new location. /{authority}/patients/{patientId}/inbox/messages."
         400:
-          description: "The request does not meet the documented requirements."
+          description: 'The request does not meet the documented requirements.'
         401:
-          description: "An HTTP authentication challenge was issued or failed."
+          description: 'An HTTP authentication challenge was issued or failed.'
         403:
           description:
             "The authority within the URI is not equal to the authority\
@@ -291,79 +291,79 @@ paths:
             \ supported by this resource.The Accept-Charset request header value is\
             \ not one of the character encodings supported by this resource."
         500:
-          description: "Errors occurred while retrieving the messages, causing a failure."
+          description: 'Errors occurred while retrieving the messages, causing a failure.'
   /{authority}/patients/{patientId}/inbox/messages/{messageIds}:
     get:
-      summary: "Retrieves inbox messages and reminders by identifier."
+      summary: 'Retrieves inbox messages and reminders by identifier.'
       description:
         "A user authenticated using the CareAware OAuth implementation\
         \ is required. The authority provided in the URI must match the authority\
         \ provided in the Authorization request header. Example URI:- http://localhost:8080/messaging/{authority}/service/{authority}/patients/7929590/inbox/messages/2170961659%3A-6%3A0%3A0,2170961663%3A-6%3A0%3A0?loadReferences=true"
-      operationId: "retrieveInboxMessagesByIds"
+      operationId: 'retrieveInboxMessagesByIds'
       produces:
-        - "application/json"
+        - 'application/json'
       parameters:
-        - name: "messageIds"
-          in: "path"
-          description: "A comma-delimited list of message identifiers to be retrieved."
+        - name: 'messageIds'
+          in: 'path'
+          description: 'A comma-delimited list of message identifiers to be retrieved.'
           required: true
-          type: "string"
-        - name: "Cerner-Correlation-Id"
-          in: "header"
-          description: "Transaction identifier to assist with troubleshooting."
+          type: 'string'
+        - name: 'Cerner-Correlation-Id'
+          in: 'header'
+          description: 'Transaction identifier to assist with troubleshooting.'
           required: false
-          type: "string"
-        - name: "Accept-Charset"
-          in: "header"
-          description: "Accept-Charset header to use when encoding the response data."
+          type: 'string'
+        - name: 'Accept-Charset'
+          in: 'header'
+          description: 'Accept-Charset header to use when encoding the response data.'
           required: false
-          type: "string"
-          default: "UTF-8"
+          type: 'string'
+          default: 'UTF-8'
           enum:
-            - "UTF-8"
-            - "UTF-16"
-            - "UTF-16BE"
-            - "UTF-16LE"
-        - name: "Accept-Language"
-          in: "header"
+            - 'UTF-8'
+            - 'UTF-16'
+            - 'UTF-16BE'
+            - 'UTF-16LE'
+        - name: 'Accept-Language'
+          in: 'header'
           description:
             "Used to internationalize any error messages that may be included\
             \ in the response."
           required: false
-          type: "string"
-        - name: "authority"
-          in: "path"
+          type: 'string'
+        - name: 'authority'
+          in: 'path'
           description:
             "The authority from which the patient's messages are to be retrieved.\
             \ This path value must be non-blank and represent a valid authority."
           required: true
-          type: "string"
-        - name: "patientId"
-          in: "path"
+          type: 'string'
+        - name: 'patientId'
+          in: 'path'
           description:
             "The identifier of the patient whose messages are to be retrieved.\
             \ This path value must be non-blank and represent a valid patient identifier."
           required: true
-          type: "string"
-        - name: "loadReferences"
-          in: "query"
+          type: 'string'
+        - name: 'loadReferences'
+          in: 'query'
           description:
             "Determines whether reference identifiers should be retrieved\
             \ and returned or not."
           required: false
-          type: "boolean"
+          type: 'boolean'
           default: false
           enum:
-            - "true"
-            - "false"
+            - 'true'
+            - 'false'
       responses:
         200:
-          description: "The messages were successfully retrieved."
+          description: 'The messages were successfully retrieved.'
           schema:
-            $ref: "#/definitions/MessagesById"
+            $ref: '#/definitions/MessagesById'
           headers:
             Content-Type:
-              type: "string"
+              type: 'string'
               description:
                 "Contains the format in which the response entity is encoded.\
                 \ If not specified in the Accept-Charset request header, the response\
@@ -374,14 +374,14 @@ paths:
             \ been combined."
           headers:
             Location:
-              type: "string"
+              type: 'string'
               description:
                 "For a valid request this header will indicate that the\
                 \ patient has been combined and in the new location. /{authority}/patients/{patientId}/inbox/messages."
         400:
-          description: "The request does not meet the documented requirements."
+          description: 'The request does not meet the documented requirements.'
         401:
-          description: "An HTTP authentication challenge was issued or failed."
+          description: 'An HTTP authentication challenge was issued or failed.'
         403:
           description:
             "The authority within the URI is not equal to the authority\
@@ -397,55 +397,55 @@ paths:
             \ supported by this resource.The Accept-Charset request header value is\
             \ not one of the character encodings supported by this resource."
         500:
-          description: "Errors occurred while retrieving the messages, causing a failure."
+          description: 'Errors occurred while retrieving the messages, causing a failure.'
     delete:
-      summary: "Deletes inbox messages by identifiers."
+      summary: 'Deletes inbox messages by identifiers.'
       description:
         "A user authenticated using the CareAware OAuth implementation\
         \ is required. The authority provided in the URI must match the authority\
         \ provided in the Authorization request header. Example URI:- http://localhost:8080/messaging/{authority}/service/{authority}/patients/7929590/inbox/messages/2170961659%3A-6%3A0%3A0,2170961663%3A-6%3A0%3A0?loadReferences=true"
-      operationId: "inactivateInboxMessage"
+      operationId: 'inactivateInboxMessage'
       parameters:
-        - name: "messageIds"
-          in: "path"
+        - name: 'messageIds'
+          in: 'path'
           description:
             "A comma-delimited list of message identifiers to be deleted.\
             \ This path value must be non-blank and represent valid message identifiers."
           required: true
-          type: "string"
-        - name: "Cerner-Correlation-Id"
-          in: "header"
-          description: "Transaction identifier to assist with troubleshooting."
+          type: 'string'
+        - name: 'Cerner-Correlation-Id'
+          in: 'header'
+          description: 'Transaction identifier to assist with troubleshooting.'
           required: false
-          type: "string"
-        - name: "Accept-Language"
-          in: "header"
+          type: 'string'
+        - name: 'Accept-Language'
+          in: 'header'
           description:
             "Used to internationalize any error messages that may be included\
             \ in the response."
           required: false
-          type: "string"
-        - name: "authority"
-          in: "path"
+          type: 'string'
+        - name: 'authority'
+          in: 'path'
           description:
             "The authority from which the patient's messages are to be deleted.\
             \ This path value must be non-blank and represent a valid authority."
           required: true
-          type: "string"
-        - name: "patientId"
-          in: "path"
+          type: 'string'
+        - name: 'patientId'
+          in: 'path'
           description:
             "The identifier of the patient whose messages are to be deleted.\
             \ This path value must be non-blank and represent a valid patient identifier."
           required: true
-          type: "string"
+          type: 'string'
       responses:
         204:
-          description: "The messages were successfully deleted."
+          description: 'The messages were successfully deleted.'
         400:
-          description: "The request does not meet the documented requirements."
+          description: 'The request does not meet the documented requirements.'
         401:
-          description: "An HTTP authentication challenge was issued or failed."
+          description: 'An HTTP authentication challenge was issued or failed.'
         403:
           description:
             "The authority within the URI is not equal to the authority\
@@ -456,61 +456,61 @@ paths:
             \ authority in the system. The patientId represented by the given pathId\
             \ parameter was either: non existent, invalid or inactive."
         500:
-          description: "Errors occurred while deleting the messages, causing a failure."
+          description: 'Errors occurred while deleting the messages, causing a failure.'
   /{authority}/patients/{patientId}/inbox/messages/{messageIds}/status/{status}:
     put:
-      summary: "Updates the status of the messages."
+      summary: 'Updates the status of the messages.'
       description:
         "A user authenticated using the CareAware OAuth implementation\
         \ is required. The authority provided in the URI must match the authority\
         \ provided in the Authorization request header. Example URI:- http://localhost:8080/messaging/{authority}/service/{authority}/patients/7929590/inbox/messages/2170961659%3A-6%3A0%3A0,2170961663%3A-6%3A0%3A0/status/UNREAD"
-      operationId: "updateInboxMessageStatus"
+      operationId: 'updateInboxMessageStatus'
       parameters:
-        - name: "messageIds"
-          in: "path"
+        - name: 'messageIds'
+          in: 'path'
           description:
             "A comma-delimited list of message identifiers to be updated.\
             \ This path value must be non-blank and represent valid message identifiers."
           required: true
-          type: "string"
-        - name: "status"
-          in: "path"
-          description: "The status of the messages. This path value must be non-blank."
+          type: 'string'
+        - name: 'status'
+          in: 'path'
+          description: 'The status of the messages. This path value must be non-blank.'
           required: true
-          type: "string"
-        - name: "Cerner-Correlation-Id"
-          in: "header"
-          description: "Transaction identifier to assist with troubleshooting."
+          type: 'string'
+        - name: 'Cerner-Correlation-Id'
+          in: 'header'
+          description: 'Transaction identifier to assist with troubleshooting.'
           required: false
-          type: "string"
-        - name: "Accept-Language"
-          in: "header"
+          type: 'string'
+        - name: 'Accept-Language'
+          in: 'header'
           description:
             "Used to internationalize any error messages that may be included\
             \ in the response."
           required: false
-          type: "string"
-        - name: "authority"
-          in: "path"
+          type: 'string'
+        - name: 'authority'
+          in: 'path'
           description:
             "The authority from which the patient's messages are to be updated.\
             \ This path value must be non-blank and represent a valid authority."
           required: true
-          type: "string"
-        - name: "patientId"
-          in: "path"
+          type: 'string'
+        - name: 'patientId'
+          in: 'path'
           description:
             "The identifier of the patient whose messages are to be updated.\
             \ This path value must be non-blank and represent a valid patient identifier."
           required: true
-          type: "string"
+          type: 'string'
       responses:
         200:
-          description: "The messages were successfully updated."
+          description: 'The messages were successfully updated.'
         400:
-          description: "The request does not meet the documented requirements."
+          description: 'The request does not meet the documented requirements.'
         401:
-          description: "An HTTP authentication challenge was issued or failed."
+          description: 'An HTTP authentication challenge was issued or failed.'
         403:
           description:
             "The authority within the URI is not equal to the authority\
@@ -526,105 +526,105 @@ paths:
             \ messages in the system, causing a conflict which prevented the messages\
             \ from being successfully updated."
         500:
-          description: "Errors occurred while updating the messages, causing a failure."
+          description: 'Errors occurred while updating the messages, causing a failure.'
   /{authority}/patients/{patientId}/outbox/messages:
     get:
-      summary: "Retrieves messages by patient recipient."
+      summary: 'Retrieves messages by patient recipient.'
       description:
         "A user authenticated using the CareAware OAuth implementation\
         \ is required. The authority provided in the URI must match the authority\
         \ provided in the Authorization request header."
-      operationId: "retrieveOutboxMessagesBySenderAsJson"
+      operationId: 'retrieveOutboxMessagesBySenderAsJson'
       produces:
-        - "application/json"
+        - 'application/json'
       parameters:
-        - name: "Accept-Charset"
-          in: "header"
-          description: "Accept-Charset header to use when encoding the response data."
+        - name: 'Accept-Charset'
+          in: 'header'
+          description: 'Accept-Charset header to use when encoding the response data.'
           required: false
-          type: "string"
-          default: "UTF-8"
+          type: 'string'
+          default: 'UTF-8'
           enum:
-            - "UTF-8"
-            - "UTF-16"
-            - "UTF-16BE"
-            - "UTF-16LE"
-        - name: "Accept-Language"
-          in: "header"
+            - 'UTF-8'
+            - 'UTF-16'
+            - 'UTF-16BE'
+            - 'UTF-16LE'
+        - name: 'Accept-Language'
+          in: 'header'
           description:
             "Language to use when internationalizing error messages included\
             \ in the response"
           required: false
-          type: "string"
-        - name: "Cerner-Correlation-Id"
-          in: "header"
-          description: "Transaction identifier to assist with troubleshooting."
+          type: 'string'
+        - name: 'Cerner-Correlation-Id'
+          in: 'header'
+          description: 'Transaction identifier to assist with troubleshooting.'
           required: false
-          type: "string"
-        - name: "authority"
-          in: "path"
+          type: 'string'
+        - name: 'authority'
+          in: 'path'
           description:
             "The authority from which the patient's messages are to be retrieved.\
             \ This path value must be non-blank and represent a valid authority."
           required: true
-          type: "string"
-        - name: "patientId"
-          in: "path"
+          type: 'string'
+        - name: 'patientId'
+          in: 'path'
           description:
             "The identifier of the patient whose messages are to be retrieved.\
             \ This path value must be non-blank and represent a valid patient identifier."
           required: true
-          type: "string"
-        - name: "beginDate"
-          in: "query"
+          type: 'string'
+        - name: 'beginDate'
+          in: 'query'
           description:
             "The beginning date in the query date range for messages to be\
             \ retrieved. Must be before the endDate.The ISO 8601 'Combined date and\
             \ time in UTC' format is used to specify the date and time value, excluding\
             \ milliseconds."
           required: false
-          type: "string"
-          default: "90 days prior to current date/time"
-        - name: "endDate"
-          in: "query"
+          type: 'string'
+          default: '90 days prior to current date/time'
+        - name: 'endDate'
+          in: 'query'
           description:
             "The ending date in the query date range for messages to be retrieved.\
             \ Must be after the beginDate.The ISO 8601 'Combined date and time in UTC'\
             \ format is used to specify the date and time value, excluding milliseconds."
           required: false
-          type: "string"
-          default: "current date/time"
-        - name: "statuses"
-          in: "query"
+          type: 'string'
+          default: 'current date/time'
+        - name: 'statuses'
+          in: 'query'
           description:
             "A comma delimited list containing the statuses of messages to\
             \ be retrieved."
           required: false
-          type: "string"
-          default: "UNREAD, OPEN, ONHOLD"
+          type: 'string'
+          default: 'UNREAD, OPEN, ONHOLD'
           enum:
-            - "UNREAD"
-            - "OPEN"
-            - "ONHOLD"
-            - "DELETED"
-        - name: "types"
-          in: "query"
+            - 'UNREAD'
+            - 'OPEN'
+            - 'ONHOLD'
+            - 'DELETED'
+        - name: 'types'
+          in: 'query'
           description:
             "A comma delimited list containing the types of messages to be\
             \ retrieved."
           required: false
-          type: "string"
-          default: "MESSAGE"
+          type: 'string'
+          default: 'MESSAGE'
           enum:
-            - "MESSAGE"
+            - 'MESSAGE'
       responses:
         200:
-          description: "The messages were successfully retrieved"
+          description: 'The messages were successfully retrieved'
           schema:
-            $ref: "#/definitions/Messages"
+            $ref: '#/definitions/Messages'
           headers:
             Content-Type:
-              type: "string"
+              type: 'string'
               description:
                 "Contains the format in which the response entity is encoded.\
                 \ If not specified in the Accept-Charset request header, the response\
@@ -635,14 +635,14 @@ paths:
             \ been combined."
           headers:
             Location:
-              type: "string"
+              type: 'string'
               description:
                 "For a valid request this header will indicate that the\
                 \ patient has been combined and in the new location. /{authority}/patients/{patientId}/inbox/messages."
         400:
-          description: "The request does not meet the documented requirements."
+          description: 'The request does not meet the documented requirements.'
         401:
-          description: "An HTTP authentication challenge was issued or failed."
+          description: 'An HTTP authentication challenge was issued or failed.'
         403:
           description:
             "The authority within the URI is not equal to the authority\
@@ -658,7 +658,7 @@ paths:
             \ supported by this resource.The Accept-Charset request header value is\
             \ not one of the character encodings supported by this resource."
         500:
-          description: "Errors occurred while retrieving the messages, causing a failure."
+          description: 'Errors occurred while retrieving the messages, causing a failure.'
     post:
       summary: "Adds a message to a patient's outbox (sends a message from a patient)."
       description:
@@ -693,18 +693,18 @@ paths:
         \ destination recipient to confirm that the recipient received the message\
         \ properly.\n\nExample URI :- http://localhost:8080/messaging/{authority}/service/{authority}/patients/7929590/outbox/messages\n\
         \n"
-      operationId: "sendMessageAsJson"
+      operationId: 'sendMessageAsJson'
       consumes:
-        - "application/json"
+        - 'application/json'
       parameters:
-        - in: "body"
-          name: "message"
-          description: "The message to add"
+        - in: 'body'
+          name: 'message'
+          description: 'The message to add'
           required: true
           schema:
-            $ref: "#/definitions/SendMessage"
-        - name: "Content-Type"
-          in: "header"
+            $ref: '#/definitions/SendMessage'
+        - name: 'Content-Type'
+          in: 'header'
           description:
             "The 'charset' parameter of the message contents.\nThe metering\
             \ event will most likely be stored in a data store that uses a character\
@@ -714,54 +714,54 @@ paths:
             \ header. If this requirement is not met, there is a chance of data loss\
             \ when the metering event is stored."
           required: false
-          type: "string"
-          default: "UTF-8"
+          type: 'string'
+          default: 'UTF-8'
           enum:
-            - "UTF-8"
-            - "UTF-16"
-            - "UTF-16BE"
-            - "UTF-16LE"
-        - name: "Accept-Language"
-          in: "header"
+            - 'UTF-8'
+            - 'UTF-16'
+            - 'UTF-16BE'
+            - 'UTF-16LE'
+        - name: 'Accept-Language'
+          in: 'header'
           description:
             "Language to use when internationalizing error messages included\
             \ in the response"
           required: false
-          type: "string"
-        - name: "Cerner-Correlation-Id"
-          in: "header"
-          description: "Transaction identifier to assist with troubleshooting."
+          type: 'string'
+        - name: 'Cerner-Correlation-Id'
+          in: 'header'
+          description: 'Transaction identifier to assist with troubleshooting.'
           required: false
-          type: "string"
-        - name: "authority"
-          in: "path"
+          type: 'string'
+        - name: 'authority'
+          in: 'path'
           description:
             "The authority from which the patient's message is to be added.\
             \ This path value must be non-blank and represent a valid authority."
           required: true
-          type: "string"
-        - name: "patientId"
-          in: "path"
+          type: 'string'
+        - name: 'patientId'
+          in: 'path'
           description:
             "The identifier of the patient whose message is to be added.\
             \ This path value must be non-blank and represent a valid patient identifier.The\
             \ patientId in the URI must match the patientId specified in the entity\
             \ body of the request."
           required: true
-          type: "string"
+          type: 'string'
       responses:
         201:
-          description: "The given message was added for the specified patient."
+          description: 'The given message was added for the specified patient.'
           headers:
             Location:
-              type: "string"
+              type: 'string'
               description:
                 "The location of the created message in following pattern:\
                 \ /{authority}/patients/{patientId}/outbox/messages/{messageId}."
         400:
-          description: "The request does not meet the documented requirements."
+          description: 'The request does not meet the documented requirements.'
         401:
-          description: "An HTTP authentication challenge was issued or failed."
+          description: 'An HTTP authentication challenge was issued or failed.'
         403:
           description:
             "The authority within the URI is not equal to the authority\
@@ -778,79 +778,79 @@ paths:
             \ 'UTF-16BE', or 'UTF16LE' was provided as the 'charset' parameter in\
             \ the Content-Type request header."
         500:
-          description: "Errors occurred while retrieving the messages, causing a failure."
+          description: 'Errors occurred while retrieving the messages, causing a failure.'
   /{authority}/patients/{patientId}/outbox/messages/{messageIds}:
     get:
-      summary: "Retrieves sent items for a patient recipient by message identifier."
+      summary: 'Retrieves sent items for a patient recipient by message identifier.'
       description:
         "A user authenticated using the CareAware OAuth implementation\
         \ is required. The authority provided in the URI must match the authority\
         \ provided in the Authorization request header.\n\nExample URI:- http://localhost:8080/messaging/{authority}/service/{authority}/patients/7929590/outbox/messages/2170961745%3A-4%3A0%3A0,2170961747%3A-4%3A0%3A0?loadReferences=true"
-      operationId: "retrieveOutboxMessagesByIds"
+      operationId: 'retrieveOutboxMessagesByIds'
       produces:
-        - "application/json"
+        - 'application/json'
       parameters:
-        - name: "messageIds"
-          in: "path"
-          description: "A comma-delimited list of message identifiers to be retrieved."
+        - name: 'messageIds'
+          in: 'path'
+          description: 'A comma-delimited list of message identifiers to be retrieved.'
           required: true
-          type: "string"
-        - name: "Accept-Charset"
-          in: "header"
-          description: "Accept-Charset header to use when encoding the response data."
+          type: 'string'
+        - name: 'Accept-Charset'
+          in: 'header'
+          description: 'Accept-Charset header to use when encoding the response data.'
           required: false
-          type: "string"
-          default: "UTF-8"
+          type: 'string'
+          default: 'UTF-8'
           enum:
-            - "UTF-8"
-            - "UTF-16"
-            - "UTF-16BE"
-            - "UTF-16LE"
-        - name: "Accept-Language"
-          in: "header"
+            - 'UTF-8'
+            - 'UTF-16'
+            - 'UTF-16BE'
+            - 'UTF-16LE'
+        - name: 'Accept-Language'
+          in: 'header'
           description:
             "Language to use when internationalizing error messages included\
             \ in the response"
           required: false
-          type: "string"
-        - name: "Cerner-Correlation-Id"
-          in: "header"
-          description: "Transaction identifier to assist with troubleshooting."
+          type: 'string'
+        - name: 'Cerner-Correlation-Id'
+          in: 'header'
+          description: 'Transaction identifier to assist with troubleshooting.'
           required: false
-          type: "string"
-        - name: "authority"
-          in: "path"
+          type: 'string'
+        - name: 'authority'
+          in: 'path'
           description:
             "The authority from which the patient's messages are to be retrieved.\
             \ This path value must be non-blank and represent a valid authority."
           required: true
-          type: "string"
-        - name: "patientId"
-          in: "path"
+          type: 'string'
+        - name: 'patientId'
+          in: 'path'
           description:
             "The identifier of the patient whose messages are to be retrieved.\
             \ This path value must be non-blank and represent a valid patient identifier."
           required: true
-          type: "string"
-        - name: "loadReferences"
-          in: "query"
+          type: 'string'
+        - name: 'loadReferences'
+          in: 'query'
           description:
             "Determines whether the 'referenceIds' array will be retrieved\
             \ and returned in the messages in the response."
           required: false
-          type: "string"
-          default: "false"
+          type: 'string'
+          default: 'false'
           enum:
-            - "true"
-            - "false"
+            - 'true'
+            - 'false'
       responses:
         200:
-          description: "The messages were successfully retrieved"
+          description: 'The messages were successfully retrieved'
           schema:
-            $ref: "#/definitions/MessagesById"
+            $ref: '#/definitions/MessagesById'
           headers:
             Content-Type:
-              type: "string"
+              type: 'string'
               description:
                 "Contains the format in which the response entity is encoded.\
                 \ If not specified in the Accept-Charset request header, the response\
@@ -861,14 +861,14 @@ paths:
             \ been combined."
           headers:
             Location:
-              type: "string"
+              type: 'string'
               description:
                 "For a valid request this header will indicate that the\
                 \ patient has been combined and in the new location. /{authority}/patients/{patientId}/outbox/messages/{messageIds}."
         400:
-          description: "The request does not meet the documented requirements."
+          description: 'The request does not meet the documented requirements.'
         401:
-          description: "An HTTP authentication challenge was issued or failed."
+          description: 'An HTTP authentication challenge was issued or failed.'
         403:
           description:
             "The authority within the URI is not equal to the authority\
@@ -884,7 +884,7 @@ paths:
             \ supported by this resource.The Accept-Charset request header value is\
             \ not one of the character encodings supported by this resource."
         500:
-          description: "Errors occurred while retrieving the messages, causing a failure."
+          description: 'Errors occurred while retrieving the messages, causing a failure.'
   /{authority}/personnel/{personnelIds}/recipient-access:
     get:
       summary:
@@ -894,66 +894,66 @@ paths:
         "A user authenticated using the CareAware OAuth implementation\
         \ is required.The authority provided in the URI must match the authority provided\
         \ in the Authorization request header.Example URL : http://localhost:8080/messaging/{authority}/service/{authority}/personnel/{personnelIds}/recipient-access"
-      operationId: "retrieveRecipientAccess"
+      operationId: 'retrieveRecipientAccess'
       produces:
-        - "application/json"
+        - 'application/json'
       parameters:
-        - name: "personnelIds"
-          in: "path"
+        - name: 'personnelIds'
+          in: 'path'
           description:
             "A comma-delimited list of personnel identifiers. This path value\
             \ must be non-blank and represent valid personnel identifiers."
           required: true
-          type: "string"
-        - name: "Accept-Charset"
-          in: "header"
-          description: "Accept-Charset header to use when encoding the response data."
+          type: 'string'
+        - name: 'Accept-Charset'
+          in: 'header'
+          description: 'Accept-Charset header to use when encoding the response data.'
           required: false
-          type: "string"
-          default: "UTF-8"
+          type: 'string'
+          default: 'UTF-8'
           enum:
-            - "UTF-8"
-            - "UTF-16"
-            - "UTF-16BE"
-            - "UTF-16LE"
-        - name: "Accept-Language"
-          in: "header"
+            - 'UTF-8'
+            - 'UTF-16'
+            - 'UTF-16BE'
+            - 'UTF-16LE'
+        - name: 'Accept-Language'
+          in: 'header'
           description:
             "Used to internationalize any error messages that may be included\
             \ in the response."
           required: false
-          type: "string"
-        - name: "Cerner-Correlation-Id"
-          in: "header"
-          description: "Transaction identifier to assist with troubleshooting."
+          type: 'string'
+        - name: 'Cerner-Correlation-Id'
+          in: 'header'
+          description: 'Transaction identifier to assist with troubleshooting.'
           required: false
-          type: "string"
-        - name: "authority"
-          in: "path"
+          type: 'string'
+        - name: 'authority'
+          in: 'path'
           description:
             "The authority from which the personnel's recipient access is\
             \ to be retrieved. This path value must be non-blank and represent a valid\
             \ authority."
           required: true
-          type: "string"
+          type: 'string'
       responses:
         200:
           description:
             "The recipient access status was successfully retrieved for\
             \ the given personnel identifiers."
           schema:
-            $ref: "#/definitions/RecipientAccessStatusByPersonnelId"
+            $ref: '#/definitions/RecipientAccessStatusByPersonnelId'
           headers:
             Content-Type:
-              type: "string"
+              type: 'string'
               description:
                 "Contains the format in which the response entity is encoded.\
                 \ If not specified in the Accept-Charset request header, the response\
                 \ will be encoded in the 'UTF-8' format."
         400:
-          description: "The request does not meet the documented requirements."
+          description: 'The request does not meet the documented requirements.'
         401:
-          description: "An HTTP authentication challenge was issued or failed."
+          description: 'An HTTP authentication challenge was issued or failed.'
         403:
           description:
             "The authority within the URI is not equal to the authority\
@@ -973,7 +973,7 @@ paths:
             \ a failure."
   /{authority}/pools:
     get:
-      summary: "The service supports searching for messaging pools. "
+      summary: 'The service supports searching for messaging pools. '
       description:
         "A user authenticated using the CareAware OAuth implementation\
         \ is required.The authority provided in the URI must match the authority provided\
@@ -981,63 +981,63 @@ paths:
         \ all pools are retrieved. If a name query parameter is provided, the names\
         \ are searched in a case-insensitive manner, using a \"starts with\" search\
         \ algorithm for each name.Example URL : http://localhost:8080/messaging/{authority}/service/{authority}/pools?name=BirthCenterPool"
-      operationId: "retrieveByNameAsJson"
+      operationId: 'retrieveByNameAsJson'
       produces:
-        - "application/json"
+        - 'application/json'
       parameters:
-        - name: "name"
-          in: "query"
+        - name: 'name'
+          in: 'query'
           description:
             "The name belonging to the pools to be retrieved. If a name is\
             \ not provided, all available pools will be retrieved."
           required: false
-          type: "string"
-        - name: "Accept-Charset"
-          in: "header"
-          description: "Accept-Charset header to use when encoding the response data."
+          type: 'string'
+        - name: 'Accept-Charset'
+          in: 'header'
+          description: 'Accept-Charset header to use when encoding the response data.'
           required: false
-          type: "string"
-          default: "UTF-8"
+          type: 'string'
+          default: 'UTF-8'
           enum:
-            - "UTF-8"
-            - "UTF-16"
-            - "UTF-16BE"
-            - "UTF-16LE"
-        - name: "Accept-Language"
-          in: "header"
+            - 'UTF-8'
+            - 'UTF-16'
+            - 'UTF-16BE'
+            - 'UTF-16LE'
+        - name: 'Accept-Language'
+          in: 'header'
           description:
             "Used to internationalize any error messages that may be included\
             \ in the response."
           required: false
-          type: "string"
-        - name: "Cerner-Correlation-Id"
-          in: "header"
-          description: "Transaction identifier to assist with troubleshooting."
+          type: 'string'
+        - name: 'Cerner-Correlation-Id'
+          in: 'header'
+          description: 'Transaction identifier to assist with troubleshooting.'
           required: false
-          type: "string"
-        - name: "authority"
-          in: "path"
+          type: 'string'
+        - name: 'authority'
+          in: 'path'
           description:
             "The authority from which the pools are to be retrieved. This\
             \ path value must be non-blank and represent a valid authority."
           required: true
-          type: "string"
+          type: 'string'
       responses:
         200:
-          description: "The pools were successfully retrieved."
+          description: 'The pools were successfully retrieved.'
           schema:
-            $ref: "#/definitions/PoolsByName"
+            $ref: '#/definitions/PoolsByName'
           headers:
             Content-Type:
-              type: "string"
+              type: 'string'
               description:
                 "Contains the format in which the response entity is encoded.\
                 \ If not specified in the Accept-Charset request header, the response\
                 \ will be encoded in the 'UTF-8' format."
         400:
-          description: "The request does not meet the documented requirements."
+          description: 'The request does not meet the documented requirements.'
         401:
-          description: "An HTTP authentication challenge was issued or failed."
+          description: 'An HTTP authentication challenge was issued or failed.'
         403:
           description:
             "The authority within the URI is not equal to the authority\
@@ -1051,71 +1051,71 @@ paths:
             "The Accept-Charset request header value is not one of the\
             \ character encodings supported by this resource."
         500:
-          description: "Errors occurred while retrieving the pools, causing a failure."
+          description: 'Errors occurred while retrieving the pools, causing a failure.'
   /{authority}/pools/{poolIds}:
     get:
-      summary: "The service retrieves pools by pool identifier. "
+      summary: 'The service retrieves pools by pool identifier. '
       description:
         "A user authenticated using the CareAware OAuth implementation\
         \ is required.The authority provided in the URI must match the authority provided\
         \ in the Authorization request header.Example URL : http://localhost:8080/messaging/{authority}/service/{authority}/pools/15730568,15726730"
-      operationId: "retrieveByIdAsJson"
+      operationId: 'retrieveByIdAsJson'
       produces:
-        - "application/json"
+        - 'application/json'
       parameters:
-        - name: "poolIds"
-          in: "path"
+        - name: 'poolIds'
+          in: 'path'
           description:
             "A comma-delimited list of pool identifiers. This path value\
             \ must be non-blank and represent valid pool identifiers."
           required: true
-          type: "string"
-        - name: "Accept-Charset"
-          in: "header"
-          description: "Accept-Charset header to use when encoding the response data."
+          type: 'string'
+        - name: 'Accept-Charset'
+          in: 'header'
+          description: 'Accept-Charset header to use when encoding the response data.'
           required: false
-          type: "string"
-          default: "UTF-8"
+          type: 'string'
+          default: 'UTF-8'
           enum:
-            - "UTF-8"
-            - "UTF-16"
-            - "UTF-16BE"
-            - "UTF-16LE"
-        - name: "Accept-Language"
-          in: "header"
+            - 'UTF-8'
+            - 'UTF-16'
+            - 'UTF-16BE'
+            - 'UTF-16LE'
+        - name: 'Accept-Language'
+          in: 'header'
           description:
             "Used to internationalize any error messages that may be included\
             \ in the response."
           required: false
-          type: "string"
-        - name: "Cerner-Correlation-Id"
-          in: "header"
-          description: "Transaction identifier to assist with troubleshooting."
+          type: 'string'
+        - name: 'Cerner-Correlation-Id'
+          in: 'header'
+          description: 'Transaction identifier to assist with troubleshooting.'
           required: false
-          type: "string"
-        - name: "authority"
-          in: "path"
+          type: 'string'
+        - name: 'authority'
+          in: 'path'
           description:
             "The authority from which the pools are to be retrieved. This\
             \ path value must be non-blank and represent a valid authority."
           required: true
-          type: "string"
+          type: 'string'
       responses:
         200:
-          description: "The pools were successfully retrieved."
+          description: 'The pools were successfully retrieved.'
           schema:
-            $ref: "#/definitions/PoolsById"
+            $ref: '#/definitions/PoolsById'
           headers:
             Content-Type:
-              type: "string"
+              type: 'string'
               description:
                 "Contains the format in which the response entity is encoded.\
                 \ If not specified in the Accept-Charset request header, the response\
                 \ will be encoded in the 'UTF-8' format."
         400:
-          description: "The request does not meet the documented requirements."
+          description: 'The request does not meet the documented requirements.'
         401:
-          description: "An HTTP authentication challenge was issued or failed."
+          description: 'An HTTP authentication challenge was issued or failed.'
         403:
           description:
             "The authority within the URI is not equal to the authority\
@@ -1129,7 +1129,7 @@ paths:
             "The Accept-Charset request header value is not one of the\
             \ character encodings supported by this resource."
         500:
-          description: "Errors occurred while retrieving the pools, causing a failure."
+          description: 'Errors occurred while retrieving the pools, causing a failure.'
   /{authority}/pools/{poolIds}/recipient-access:
     get:
       summary:
@@ -1139,65 +1139,65 @@ paths:
         "A user authenticated using the CareAware OAuth implementation\
         \ is required.The authority provided in the URI must match the authority provided\
         \ in the Authorization request header.Example URL : http://localhost:8080/messaging/{authority}/service/{authority}/pools/7929565,7929566/recipient-access"
-      operationId: "retrieveRecipientAccess"
+      operationId: 'retrieveRecipientAccess'
       produces:
-        - "application/json"
+        - 'application/json'
       parameters:
-        - name: "poolIds"
-          in: "path"
+        - name: 'poolIds'
+          in: 'path'
           description:
             "A comma-delimited list of pool identifiers. This path value\
             \ must be non-blank and represent valid pool identifiers."
           required: true
-          type: "string"
-        - name: "Accept-Charset"
-          in: "header"
-          description: "Accept-Charset header to use when encoding the response data."
+          type: 'string'
+        - name: 'Accept-Charset'
+          in: 'header'
+          description: 'Accept-Charset header to use when encoding the response data.'
           required: false
-          type: "string"
-          default: "UTF-8"
+          type: 'string'
+          default: 'UTF-8'
           enum:
-            - "UTF-8"
-            - "UTF-16"
-            - "UTF-16BE"
-            - "UTF-16LE"
-        - name: "Accept-Language"
-          in: "header"
+            - 'UTF-8'
+            - 'UTF-16'
+            - 'UTF-16BE'
+            - 'UTF-16LE'
+        - name: 'Accept-Language'
+          in: 'header'
           description:
             "Used to internationalize any error messages that may be included\
             \ in the response."
           required: false
-          type: "string"
-        - name: "Cerner-Correlation-Id"
-          in: "header"
-          description: "Transaction identifier to assist with troubleshooting."
+          type: 'string'
+        - name: 'Cerner-Correlation-Id'
+          in: 'header'
+          description: 'Transaction identifier to assist with troubleshooting.'
           required: false
-          type: "string"
-        - name: "authority"
-          in: "path"
+          type: 'string'
+        - name: 'authority'
+          in: 'path'
           description:
             "The authority from which the pools are to be retrieved. This\
             \ path value must be non-blank and represent a valid authority."
           required: true
-          type: "string"
+          type: 'string'
       responses:
         200:
           description:
             "The recipient access status was successfully retrieved for\
             \ the given pool identifiers."
           schema:
-            $ref: "#/definitions/RecipientAccessStatusByPoolId"
+            $ref: '#/definitions/RecipientAccessStatusByPoolId'
           headers:
             Content-Type:
-              type: "string"
+              type: 'string'
               description:
                 "Contains the format in which the response entity is encoded.\
                 \ If not specified in the Accept-Charset request header, the response\
                 \ will be encoded in the 'UTF-8' format."
         400:
-          description: "The request does not meet the documented requirements."
+          description: 'The request does not meet the documented requirements.'
         401:
-          description: "An HTTP authentication challenge was issued or failed."
+          description: 'An HTTP authentication challenge was issued or failed.'
         403:
           description:
             "The authority within the URI is not equal to the authority\
@@ -1212,33 +1212,33 @@ paths:
             "The Accept-Charset request header value is not one of the\
             \ character encodings supported by this resource."
         500:
-          description: "Errors occurred while retrieving the pools, causing a failure."
+          description: 'Errors occurred while retrieving the pools, causing a failure.'
 definitions:
   Attachment:
-    type: "object"
+    type: 'object'
     properties:
       name:
-        type: "string"
+        type: 'string'
         description:
           "The name of the attachment. Supported HTTP methods.\nGET@(/*):\
           \ This field will be returned.\n"
       mediaIdentifier:
-        type: "string"
+        type: 'string'
         description:
           "The media identifier of the attachment. Supported HTTP methods.\n\
           GET@(/*): This field will be returned.\n"
       mediaVersion:
-        type: "integer"
-        format: "int32"
+        type: 'integer'
+        format: 'int32'
         description:
           "The media version of the attachment.Supported HTTP methods.\n\
           GET@(/*): This field will be returned.\n"
-    description: "Message Attachment"
+    description: 'Message Attachment'
   EMail:
-    type: "object"
+    type: 'object'
     properties:
       address:
-        type: "string"
+        type: 'string'
         description:
           "The secure e-mail address. An e-mail address has a length limitation\
           \ of 256 bytes per RFC 5321 4.5.3.1.3. This is not a requirement, but strongly\
@@ -1247,87 +1247,87 @@ definitions:
           \ will be returned.\nPOST@(/{authority}/patients/{patientId}/outbox/messages):\
           \ Must be populated with a valid e-mail address, otherwise, a 400/Bad Request\
           \ status will be returned."
-    description: "E-Mail Address."
+    description: 'E-Mail Address.'
   Message:
-    type: "object"
+    type: 'object'
     properties:
       idUrl:
-        type: "string"
+        type: 'string'
         description:
           "URI of this message. Supported HTTP methods.\nGET@(/*): This\
           \ field will be returned.\n"
       id:
-        type: "string"
+        type: 'string'
         description:
           "The identifier for this message. Supported HTTP methods.\nGET@(/*):\
           \ This field will be returned .\n"
       subject:
-        type: "string"
+        type: 'string'
         description:
           "The subject of the message. Supported HTTP methods.\nGET: This\
           \ field will be returned.\n"
       personSenderId:
-        type: "integer"
-        format: "int64"
+        type: 'integer'
+        format: 'int64'
         description:
           "The identifier of the person sender of this message. Supported\
           \ HTTP methods.\nGET: This field will be returned if available.\n"
       personnelSenderId:
-        type: "integer"
-        format: "int64"
+        type: 'integer'
+        format: 'int64'
         description:
           "The identifier of the personnel sender of this message. Supported\
           \ HTTP methods.\nGET: This field will be returned if available.\n"
       poolSenderId:
-        type: "integer"
-        format: "int64"
+        type: 'integer'
+        format: 'int64'
         description:
           "The identifier of the pool sender of this message. Supported\
           \ HTTP methods.\nGET: This field will be returned if available.\n"
       createDate:
-        type: "string"
-        format: "date-time"
+        type: 'string'
+        format: 'date-time'
         description:
           "The date the message was created. The ISO 8601 'Combined date\
           \ and time in UTC' format is used to specify the date and time value, excluding\
           \ milliseconds. Supported HTTP methods.\nGET: This field will be returned.\n"
       reminderDate:
-        type: "string"
-        format: "date-time"
+        type: 'string'
+        format: 'date-time'
         description:
           "The reminder date of the message. The ISO 8601 'Combined date\
           \ and time in UTC' format is used to specify the date and time value, excluding\
           \ milliseconds. Supported HTTP methods.\nGET: This field will be returned\
           \ if available.\n"
       messageType:
-        type: "string"
+        type: 'string'
         description:
           "The type of the message. Supported HTTP methods.\nGET: This\
           \ field will be returned.\n"
         enum:
-          - "MESSAGE"
-          - "REMINDER"
+          - 'MESSAGE'
+          - 'REMINDER'
       priority:
-        type: "string"
+        type: 'string'
         description:
           "The priority of the message. Supported HTTP methods.\nGET: This\
           \ field will be returned.\n"
         enum:
-          - "STAT"
-          - "ROUTINE"
+          - 'STAT'
+          - 'ROUTINE'
       status:
-        type: "string"
+        type: 'string'
         description:
           "The status of the message. Supported HTTP methods.\nGET: This\
           \ field will be returned.\n"
         enum:
-          - "UNREAD"
-          - "OPENED"
-          - "ONHOLD"
-          - "DELETED"
-          - "UNKNOWN"
+          - 'UNREAD'
+          - 'OPENED'
+          - 'ONHOLD'
+          - 'DELETED'
+          - 'UNKNOWN'
       attachments:
-        type: "array"
+        type: 'array'
         description:
           "Array of attachment objects for this message. Supported HTTP\
           \ methods.\nGET@(/{authority}/patients/{patientId}/outbox/messages):The\
@@ -1336,23 +1336,23 @@ definitions:
           \ The field will be returned on messages that have attachments.\nGET@(/{authority}/patients/{patientId}/inbox/messages/{messageIds}):\
           \ The field will be returned on messages that have attachments.\n"
         items:
-          $ref: "#/definitions/Attachment"
+          $ref: '#/definitions/Attachment'
       receivers:
-        type: "array"
+        type: 'array'
         description:
           "Array of receivers for this message. Supported HTTP methods.\n\
           GET: This field will be returned if available.\n"
         items:
-          $ref: "#/definitions/Receiver"
+          $ref: '#/definitions/Receiver'
       ccReceivers:
-        type: "array"
+        type: 'array'
         description:
           "Array of carbon copy receiver objects for this message. Supported\
           \ HTTP methods.\nGET: This field will be returned if available.\n"
         items:
-          $ref: "#/definitions/Receiver"
+          $ref: '#/definitions/Receiver'
       referenceId:
-        type: "string"
+        type: 'string'
         description:
           "The reference identifier of this message. This identifier will\
           \ be included in the Message referenceIds array of related messages when\
@@ -1362,7 +1362,7 @@ definitions:
         description:
           "The information of the E-Mail sender of this message. Supported\
           \ HTTP methods.\nGET: This field will be returned if available.\n"
-        $ref: "#/definitions/EMail"
+        $ref: '#/definitions/EMail'
       sensitivity:
         description:
           "This field contains the information indicating how sensitive\
@@ -1370,73 +1370,73 @@ definitions:
           \ intention of which accounts associated to the patient may view / interact\
           \ with the message. Supported HTTP methods.\nGET: This field will be returned\
           \ on messages that have associated portal user ids to limit message access.\n"
-        $ref: "#/definitions/Sensitivity"
+        $ref: '#/definitions/Sensitivity'
       responsiblePersonnelId:
-        type: "integer"
-        format: "int64"
+        type: 'integer'
+        format: 'int64'
         description:
           "The identifier of the personnel used for MU3 Reporting.\nGET:\
           \ This field will be returned if available.\n"
       patientId:
-        type: "integer"
-        format: "int64"
+        type: 'integer'
+        format: 'int64'
         description:
           "The identifier of the patient associated to this message. Supported\
           \ HTTP methods:\nGET@(/*):This field may be returned.\n"
       encounterId:
-        type: "integer"
-        format: "int64"
+        type: 'integer'
+        format: 'int64'
         description:
           "The identifier of the encounter associated to this message.Supported\
           \ HTTP methods:\nGET@(/*):This field may be returned.\n"
       text:
-        type: "string"
+        type: 'string'
         description:
           "The text of this message in Rich Text Format. Supported HTTP\
           \ methods:\nGET@(/*):This field may be returned. May return the RTF markup\
           \ as non-standard concatenated RTF blocks when the message is saved to chart.\
           \ These text blocks are returned separately in the TextSection array.\n"
       updateDate:
-        type: "string"
-        format: "date-time"
+        type: 'string'
+        format: 'date-time'
         description:
           "Date this message was last updated. The ISO 8601 'Combined date\
           \ and time in UTC' format is used to specify the date and time value, excluding\
           \ milliseconds. Supported HTTP methods:\nGET@(/*):This field will be returned.\n"
       dueDate:
-        type: "string"
-        format: "date-time"
+        type: 'string'
+        format: 'date-time'
         description:
           "The due date of this message. The ISO 8601 'Combined date and\
           \ time in UTC' format is used to specify the date and time value, excluding\
           \ milliseconds. Supported HTTP methods:\nGET@(/*):This field may be returned.\n"
       openUrl:
-        type: "string"
+        type: 'string'
         description:
           "URL for opening this message. Supported HTTP methods:\nGET@(/*):This\
           \ field will be returned.\n"
       deleteUrl:
-        type: "string"
+        type: 'string'
         description:
           "URL for deleting this message. Supported HTTP methods:\nGET@(/*):This\
           \ field may be returned.\n"
       unreadUrl:
-        type: "string"
+        type: 'string'
         description:
           "URL for marking this message as UNREAD. Supported HTTP methods:\n\
           GET@(/*): This field may be returned.\n"
       replyUrl:
-        type: "string"
+        type: 'string'
         description:
           "URL for replying to this message. Supported HTTP Methods:\n\
           GET@(/*): This field may be returned.\n"
       previousMessageId:
-        type: "string"
+        type: 'string'
         description:
           "Identifier of the previous message in a thread of related messages.\
           \ Supported HTTP methods:\nGET@(/*): This field will never be returned.\n"
       referenceIds:
-        type: "array"
+        type: 'array'
         description:
           "Array of related message reference identifiers which have preceded\
           \ this message through links in a conversation.The values returned will\
@@ -1447,130 +1447,130 @@ definitions:
           \ a conversation when the loadReferences query parameter specifying that\
           \ references should be loaded is included.\n"
         items:
-          type: "string"
+          type: 'string'
       resultSetId:
-        type: "integer"
-        format: "int64"
+        type: 'integer'
+        format: 'int64'
         description:
           "Identifier of the result associated to this message. Supported\
           \ HTTP Methods:\nGET@(/*): This field may be returned.\n"
       texts:
-        type: "array"
+        type: 'array'
         description:
           "Array of TextSections for this message. The text section array\
           \ is ordered from latest text block to oldest text block. Supported HTTP\
           \ Methods:\nGET@(/*): This field may be returned.\n"
         items:
-          $ref: "#/definitions/Message Text"
-    description: "Message representation."
+          $ref: '#/definitions/Message Text'
+    description: 'Message representation.'
   Message Text:
-    type: "object"
+    type: 'object'
     properties:
       title:
-        type: "string"
+        type: 'string'
         description:
           "The title of the message. Supported HTTP methods:\nGET@(/*):This\
           \ field will be returned if available.\nPOST@(/{authority}/patients/{patientId}/outbox/messages):\
           \ Not accepted when adding a message. Otherwise, a 400/Bad Request status\
           \ will be returned."
       formatType:
-        type: "string"
+        type: 'string'
         description:
           "Format of the message text.Supported HTTP methods:\nGET@(/*):This\
           \ field will be returned if available and can be any of [RTF,XHTML,Unknown]\n\
           POST@(/{authority}/patients/{patientId}/outbox/messages): Not accepted when\
           \ adding a message. Otherwise, a 400/Bad Request status will be returned."
         enum:
-          - "UNKNOWN"
-          - "XHTML"
-          - "RTF"
+          - 'UNKNOWN'
+          - 'XHTML'
+          - 'RTF'
       text:
-        type: "string"
+        type: 'string'
         description:
           "The text of the message. Supported HTTP methods:\nGET@(/*):\
           \ This field will be returned.\nPOST@(/{authority}/patients/{patientId}/outbox/messages):\
           \ Not accepted when adding a message. Otherwise, a 400/Bad Request status\
           \ will be returned."
   MessageLite:
-    type: "object"
+    type: 'object'
     properties:
       idUrl:
-        type: "string"
+        type: 'string'
         description:
           "URI of this message. Supported HTTP methods.\nGET@(/*): This\
           \ field will be returned.\n"
       id:
-        type: "string"
+        type: 'string'
         description:
           "The identifier for this message. Supported HTTP methods.\nGET@(/*):\
           \ This field will be returned .\n"
       subject:
-        type: "string"
+        type: 'string'
         description:
           "The subject of the message. Supported HTTP methods.\nGET: This\
           \ field will be returned.\n"
       personSenderId:
-        type: "integer"
-        format: "int64"
+        type: 'integer'
+        format: 'int64'
         description:
           "The identifier of the person sender of this message. Supported\
           \ HTTP methods.\nGET: This field will be returned if available.\n"
       personnelSenderId:
-        type: "integer"
-        format: "int64"
+        type: 'integer'
+        format: 'int64'
         description:
           "The identifier of the personnel sender of this message. Supported\
           \ HTTP methods.\nGET: This field will be returned if available.\n"
       poolSenderId:
-        type: "integer"
-        format: "int64"
+        type: 'integer'
+        format: 'int64'
         description:
           "The identifier of the pool sender of this message. Supported\
           \ HTTP methods.\nGET: This field will be returned if available.\n"
       createDate:
-        type: "string"
-        format: "date-time"
+        type: 'string'
+        format: 'date-time'
         description:
           "The date the message was created. The ISO 8601 'Combined date\
           \ and time in UTC' format is used to specify the date and time value, excluding\
           \ milliseconds. Supported HTTP methods.\nGET: This field will be returned.\n"
       reminderDate:
-        type: "string"
-        format: "date-time"
+        type: 'string'
+        format: 'date-time'
         description:
           "The reminder date of the message. The ISO 8601 'Combined date\
           \ and time in UTC' format is used to specify the date and time value, excluding\
           \ milliseconds. Supported HTTP methods.\nGET: This field will be returned\
           \ if available.\n"
       messageType:
-        type: "string"
+        type: 'string'
         description:
           "The type of the message. Supported HTTP methods.\nGET: This\
           \ field will be returned.\n"
         enum:
-          - "MESSAGE"
-          - "REMINDER"
+          - 'MESSAGE'
+          - 'REMINDER'
       priority:
-        type: "string"
+        type: 'string'
         description:
           "The priority of the message. Supported HTTP methods.\nGET: This\
           \ field will be returned.\n"
         enum:
-          - "STAT"
-          - "ROUTINE"
+          - 'STAT'
+          - 'ROUTINE'
       status:
-        type: "string"
+        type: 'string'
         description:
           "The status of the message. Supported HTTP methods.\nGET: This\
           \ field will be returned.\n"
         enum:
-          - "UNREAD"
-          - "OPENED"
-          - "ONHOLD"
-          - "DELETED"
-          - "UNKNOWN"
+          - 'UNREAD'
+          - 'OPENED'
+          - 'ONHOLD'
+          - 'DELETED'
+          - 'UNKNOWN'
       attachments:
-        type: "array"
+        type: 'array'
         description:
           "Array of attachment objects for this message. Supported HTTP\
           \ methods.\nGET@(/{authority}/patients/{patientId}/outbox/messages):The\
@@ -1579,23 +1579,23 @@ definitions:
           \ The field will be returned on messages that have attachments.\nGET@(/{authority}/patients/{patientId}/inbox/messages/{messageIds}):\
           \ The field will be returned on messages that have attachments.\n"
         items:
-          $ref: "#/definitions/Attachment"
+          $ref: '#/definitions/Attachment'
       receivers:
-        type: "array"
+        type: 'array'
         description:
           "Array of receivers for this message. Supported HTTP methods.\n\
           GET: This field will be returned if available.\n"
         items:
-          $ref: "#/definitions/Receiver"
+          $ref: '#/definitions/Receiver'
       ccReceivers:
-        type: "array"
+        type: 'array'
         description:
           "Array of carbon copy receiver objects for this message. Supported\
           \ HTTP methods.\nGET: This field will be returned if available.\n"
         items:
-          $ref: "#/definitions/Receiver"
+          $ref: '#/definitions/Receiver'
       referenceId:
-        type: "string"
+        type: 'string'
         description:
           "The reference identifier of this message. This identifier will\
           \ be included in the Message referenceIds array of related messages when\
@@ -1605,7 +1605,7 @@ definitions:
         description:
           "The information of the E-Mail sender of this message. Supported\
           \ HTTP methods.\nGET: This field will be returned if available.\n"
-        $ref: "#/definitions/EMail"
+        $ref: '#/definitions/EMail'
       sensitivity:
         description:
           "This field contains the information indicating how sensitive\
@@ -1613,111 +1613,111 @@ definitions:
           \ intention of which accounts associated to the patient may view / interact\
           \ with the message. Supported HTTP methods.\nGET: This field will be returned\
           \ on messages that have associated portal user ids to limit message access.\n"
-        $ref: "#/definitions/Sensitivity"
+        $ref: '#/definitions/Sensitivity'
       responsiblePersonnelId:
-        type: "integer"
-        format: "int64"
+        type: 'integer'
+        format: 'int64'
         description:
           "The identifier of the personnel used for MU3 Reporting.\nGET:\
           \ This field will be returned if available.\n"
-    description: "Light weight message."
+    description: 'Light weight message.'
   Messages:
-    type: "object"
+    type: 'object'
     properties:
       messages:
-        type: "array"
-        description: "An array of MessageLite objects. May be empty."
+        type: 'array'
+        description: 'An array of MessageLite objects. May be empty.'
         items:
-          $ref: "#/definitions/MessageLite"
-    description: "A collection of messages."
+          $ref: '#/definitions/MessageLite'
+    description: 'A collection of messages.'
   MessagesById:
-    type: "object"
+    type: 'object'
     properties:
       messagesById:
-        type: "object"
+        type: 'object'
         description:
           "An array of Message objects keyed by a message identifier. May\
           \ be empty."
         additionalProperties:
-          $ref: "#/definitions/Message"
-    description: "JSON representation of an array of Messages by identifier."
+          $ref: '#/definitions/Message'
+    description: 'JSON representation of an array of Messages by identifier.'
   Pool:
-    type: "object"
+    type: 'object'
     properties:
       id:
-        type: "integer"
-        format: "int64"
+        type: 'integer'
+        format: 'int64'
       idUrl:
-        type: "string"
+        type: 'string'
       name:
-        type: "string"
+        type: 'string'
     description:
       "Messaging pool which represents a shared inbox that can be worked\
       \ by multiple users."
   PoolsById:
-    type: "object"
+    type: 'object'
     properties:
       poolsById:
-        type: "object"
-        description: "Pool keyed by a id identifier. May be empty."
+        type: 'object'
+        description: 'Pool keyed by a id identifier. May be empty.'
         additionalProperties:
-          $ref: "#/definitions/Pool"
-    description: "Representation of pools by identifier."
+          $ref: '#/definitions/Pool'
+    description: 'Representation of pools by identifier.'
   PoolsByName:
-    type: "object"
+    type: 'object'
     properties:
       poolsByName:
-        type: "object"
-        description: "Pool keyed by a string pool name. May be empty. "
+        type: 'object'
+        description: 'Pool keyed by a string pool name. May be empty. '
         additionalProperties:
-          $ref: "#/definitions/Pool"
-    description: "Representation of pools by name."
+          $ref: '#/definitions/Pool'
+    description: 'Representation of pools by name.'
   PostAttachment:
-    type: "object"
+    type: 'object'
     properties:
       name:
-        type: "string"
+        type: 'string'
         description:
           "The name of the attachment. Supported HTTP methods.\nPOST@(/{authority}/patients/{patientId}/outbox/messages):\
           \ This field is required and must be less than 256 characters. Otherwise,\
           \ a 400/Bad Request status will be returned."
       mediaIdentifier:
-        type: "string"
+        type: 'string'
         description:
           "The media identifier of the attachment. Supported HTTP methods.\n\
           POST@(/{authority}/patients/{patientId}/outbox/messages): This field is\
           \ required and must be less than 256 characters. Otherwise, a 400/Bad Request\
           \ status will be returned."
       mediaVersion:
-        type: "integer"
-        format: "int32"
+        type: 'integer'
+        format: 'int32'
         description:
           "The media version of the attachment.Supported HTTP methods.\n\
           POST@(/{authority}/patients/{patientId}/outbox/messages): This field is\
           \ required and must be a positive integer. Otherwise, a 400/Bad Request\
           \ status will be returned."
-    description: "Message Attachment"
+    description: 'Message Attachment'
   PostReceiver:
-    type: "object"
+    type: 'object'
     properties:
       receiverId:
-        type: "integer"
-        format: "int64"
+        type: 'integer'
+        format: 'int64'
         description:
           "The identifier of the receiver. Supported HTTP methods.\nPOST@(/{authority}/patients/{patientId}/outbox/messages):\
           \ Must be populated with a non-zero id when the type is PERSONNEL or POOL.\
           \ Otherwise, a 400/Bad Request status will be returned."
       type:
-        type: "string"
+        type: 'string'
         description:
           "The type of the receiver. Supported HTTP methods.\nPOST@(/{authority}/patients/{patientId}/outbox/messages):\
           \ This field must be set, and set to PERSONNEL, POOL, or EMAIL. If it is\
           \ set to any other value, a 400/Bad Request status will be returned."
         enum:
-          - "PERSONNEL"
-          - "POOL"
-          - "PERSON"
-          - "EMAIL"
+          - 'PERSONNEL'
+          - 'POOL'
+          - 'PERSON'
+          - 'EMAIL'
       email:
         description:
           "The secure e-mail information of the receiver. \nAn e-mail address\
@@ -1727,38 +1727,38 @@ definitions:
           \ methods.\nPOST@(/{authority}/patients/{patientId}/outbox/messages): Must\
           \ be populated with a valid e-mail address string when the type is EMAIL.\
           \ Otherwise, a 400/Bad Request status will be returned."
-        $ref: "#/definitions/EMail"
-    description: "Recipient of a message."
+        $ref: '#/definitions/EMail'
+    description: 'Recipient of a message.'
   Receiver:
-    type: "object"
+    type: 'object'
     properties:
       receiverId:
-        type: "integer"
-        format: "int64"
+        type: 'integer'
+        format: 'int64'
         description:
           "The identifier of the receiver. Supported HTTP methods.\nGET@(/*):\
           \ This field will be returned when the type is PERSON, PERSONNEL, or POOL.\n"
       type:
-        type: "string"
+        type: 'string'
         description:
           "The type of the receiver. Supported HTTP methods.\nGET@(/*):\
           \ This field will be returned.\n"
         enum:
-          - "PERSONNEL"
-          - "POOL"
-          - "PERSON"
-          - "EMAIL"
+          - 'PERSONNEL'
+          - 'POOL'
+          - 'PERSON'
+          - 'EMAIL'
       status:
-        type: "string"
+        type: 'string'
         description:
           "The status of the receiver. Supported HTTP methods.\nGET@(/*):\
           \ This field will be returned.\n"
         enum:
-          - "UNREAD"
-          - "OPENED"
-          - "ONHOLD"
-          - "DELETED"
-          - "UNKNOWN"
+          - 'UNREAD'
+          - 'OPENED'
+          - 'ONHOLD'
+          - 'DELETED'
+          - 'UNKNOWN'
       email:
         description:
           "The secure e-mail information of the receiver. \nAn e-mail address\
@@ -1767,43 +1767,43 @@ definitions:
           \ may reject the communication when the value is longer.\nSupported HTTP\
           \ methods.\nGET@(/*): This field will be returned when the type is EMAIL,\
           \ otherwise it will not exist.\n"
-        $ref: "#/definitions/EMail"
-    description: "Recipient of a message."
+        $ref: '#/definitions/EMail'
+    description: 'Recipient of a message.'
   RecipientAccessStatusByPersonnelId:
-    type: "object"
+    type: 'object'
     properties:
       recipientAccessStatusByPersonnelId:
-        type: "object"
+        type: 'object'
         description:
           "Recipient access status keyed by a string representing a personnel\
           \ identifier. May be empty."
         additionalProperties:
-          type: "string"
+          type: 'string'
           enum:
-            - "GRANTED"
-            - "DENIED_CONFIGURATION"
-    description: "Messaging access status by personnel identifier"
+            - 'GRANTED'
+            - 'DENIED_CONFIGURATION'
+    description: 'Messaging access status by personnel identifier'
   RecipientAccessStatusByPoolId:
-    type: "object"
+    type: 'object'
     properties:
       recipientAccessStatusByPoolId:
-        type: "object"
+        type: 'object'
         description:
           "Strings representing a recipient access status keyed by pool\
           \ identifier representing a pool identifier. Will contain one item for every\
           \ poolId in the request."
         additionalProperties:
-          type: "string"
+          type: 'string'
           enum:
-            - "GRANTED"
-            - "DENIED_CONFIGURATION"
-    description: "Representation of recipient access by pool identifier."
+            - 'GRANTED'
+            - 'DENIED_CONFIGURATION'
+    description: 'Representation of recipient access by pool identifier.'
   SendMessage:
-    type: "object"
+    type: 'object'
     properties:
       patientId:
-        type: "integer"
-        format: "int64"
+        type: 'integer'
+        format: 'int64'
         description:
           "The identifier of the patient associated to this message. Supported\
           \ HTTP methods:\nPOST@(/{authority}/patients/{patientId}/outbox/messages):\
@@ -1811,7 +1811,7 @@ definitions:
           \ to the patient id in the URI. Otherwise, a 400/Bad Request status will\
           \ be returned."
       receivers:
-        type: "array"
+        type: 'array'
         description:
           "Array of PostReceivers for this message. Supported HTTP methods.\n\
           POST@(/{authority}/patients/{patientId}/outbox/messages): At least one valid\
@@ -1819,9 +1819,9 @@ definitions:
           \ receiver must have a receiverId and a type, otherwise, a 400/Bad Request\
           \ status will be returned."
         items:
-          $ref: "#/definitions/PostReceiver"
+          $ref: '#/definitions/PostReceiver'
       ccReceivers:
-        type: "array"
+        type: 'array'
         description:
           "Array of carbon copy receiver objects for this message. Supported\
           \ HTTP methods.\nPOST@(/{authority}/patients/{patientId}/outbox/messages):\
@@ -1829,9 +1829,9 @@ definitions:
           \ then each receiver must have a receiverId and a type, otherwise, a 400/Bad\
           \ Request status will be returned."
         items:
-          $ref: "#/definitions/PostReceiver"
+          $ref: '#/definitions/PostReceiver'
       previousMessageId:
-        type: "string"
+        type: 'string'
         description:
           "Identifier of the previous message in a thread of related messages.\
           \ Supported HTTP methods:\nPOST@(/{authority}/patients/{patientId}/outbox/messages):\
@@ -1843,13 +1843,13 @@ definitions:
           \ the previous message.If no encounter identifier is found, then the message\
           \ will not include an encounter."
       text:
-        type: "string"
+        type: 'string'
         description:
           "The text of this message in Rich Text Format or XHTML. Supported\
           \ HTTP methods:\nPOST@(/{authority}/patients/{patientId}/outbox/messages):\
           \ This field is optional."
       formatType:
-        type: "string"
+        type: 'string'
         description:
           "The identifier of the format type used for text.\nPOST@(/{authority}/patients/{patientId}/outbox/messages):\
           \ If provided it must have message format type of XHTML or RTF\nIf set when\
@@ -1858,17 +1858,17 @@ definitions:
           \ returned. If set to xhtml with email receivers, a 400 Bad Request status\
           \ will be returned. "
         enum:
-          - "UNKNOWN"
-          - "XHTML"
-          - "RTF"
+          - 'UNKNOWN'
+          - 'XHTML'
+          - 'RTF'
       subject:
-        type: "string"
+        type: 'string'
         description:
           "The subject of the message. Supported HTTP methods.\nPOST@(/{authority}/patients/{patientId}/outbox/messages):\
           \ This field must be non-blank and less than 256 characters otherwise a\
           \ 400/Bad Request status will be returned."
       attachments:
-        type: "array"
+        type: 'array'
         description:
           "Array of PostAttachment objects for this message. Supported\
           \ HTTP methods.\nPOST@(/{authority}/patients/{patientId}/outbox/messages):The\
@@ -1876,7 +1876,7 @@ definitions:
           \ mediaIdentifier, and mediaVersion. Otherwise a 400/Bad Request status\
           \ will be returned."
         items:
-          $ref: "#/definitions/PostAttachment"
+          $ref: '#/definitions/PostAttachment'
       sensitivity:
         description:
           "This field contains the information indicating how sensitive\
@@ -1884,21 +1884,21 @@ definitions:
           \ intention of which accounts associated to the patient may view / interact\
           \ with the message. Supported HTTP methods.\nPOST@(/{authority}/patients/{patientId}/outbox/messages):\
           \ This field is optional (may be null)."
-        $ref: "#/definitions/Sensitivity"
+        $ref: '#/definitions/Sensitivity'
       responsiblePersonnelId:
-        type: "integer"
-        format: "int64"
+        type: 'integer'
+        format: 'int64'
         description:
           "The identifier of the personnel used for MU3 Reporting.\nPOST@(/{authority}/patients/{patientId}/outbox/messages):\
           \ Accepted on a new message. For a reply on a previous message the underlying\
           \ Service will determine the responsible personnel identifier.\nAnd if set\
           \ for the reply, a 400/Bad Request status will be returned. "
-    description: "Message send by Patient."
+    description: 'Message send by Patient.'
   Sensitivity:
-    type: "object"
+    type: 'object'
     properties:
       portalUserUUIDs:
-        type: "array"
+        type: 'array'
         description:
           "User ids associated to the patient that may view / interact\
           \ with the message. Supported HTTP methods.\nGET@(/*): This field will be\
@@ -1906,7 +1906,7 @@ definitions:
           \ access.\nPOST@(/{authority}/patients/{patientId}/outbox/messages): This\
           \ field is optional."
         items:
-          type: "string"
+          type: 'string'
     description:
       "Message sensitivity restricts access to the message for users having\
       \ access to patient account."
