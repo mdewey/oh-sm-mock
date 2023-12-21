@@ -54,10 +54,7 @@ const ROUTES = {
           statusCode: 405,
         });
       }
-      const id = request.pathParameters[PARAMS.MESSAGE_ID][0].replace(
-        /:/g,
-        '_',
-      );
+      const id = request.pathParameters[PARAMS.MESSAGE_ID].join(',').replace(/:/g, '_');
       const rvData = openJsonFile('outbox/get-messages-by-id', id);
       const rv = {
         ...rvData,
