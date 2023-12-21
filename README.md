@@ -40,7 +40,7 @@ Returns the sample data given by the BCG team and what is in the swagger docs
 
 ## how to add data
 
->WIP
+> WIP
 
 Currently, there needs to be some massaging of where the data is stored.
 
@@ -51,6 +51,7 @@ We are looking to expand how the data is stored to use the patient id as well to
 ## Current Questions
 
 - What are the Param formats/types, specifically:
+
   - Authority
   - Patient Id
   - Status
