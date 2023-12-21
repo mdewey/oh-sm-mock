@@ -61,4 +61,4 @@ TBD
 
 Can not use out of the box integration due to not be able to specify the return data past one example in the swagger.
 
-Refer to the ticket [https://jira.devops.va.gov/browse/MHV-52692](https://jira.devops.va.gov/browse/MHV-52692) for full breakdown.  
+Refer to the ticket [https://jira.devops.va.gov/browse/MHV-52692](https://jira.devops.va.gov/browse/MHV-52692) for full breakdown.
