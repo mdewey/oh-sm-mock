@@ -40,7 +40,7 @@ TBD
 - [ ] Refine doc
   - [ ] add discovery endpoint
 - [ ] refine logging
-- [ ] move to VA github
+- [x] move to VA github
   - [ ] convert these to tickets
 - [ ] test suite
 - [ ] move times to route of mock
@@ -59,6 +59,6 @@ TBD
 
 ### OpenAPI/Swagger integration
 
-Can not use out of the box integration due to not be able to specify the return data past one example in the swagger.
+Can not use out of the box integration due to not binge able to specify the return data past one example in the swagger.
 
-Refer to the ticket [https://jira.devops.va.gov/browse/MHV-52692](https://jira.devops.va.gov/browse/MHV-52692) for full breakdown.  
+Refer to the ticket [MHV-52692](https://jira.devops.va.gov/browse/MHV-52692) for a full breakdown.  
