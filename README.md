@@ -44,7 +44,7 @@ Returns the sample data given by the BCG team and what is in the swagger docs
 
 Currently, there needs to be some massaging of where the data is stored.
 
-For know the get-message-by-id endpoints for outbox and inbox are set up to change data based on the message id passed in.
+For now the get-message-by-id endpoints for outbox and inbox are set up to change data based on the message id passed in.
 
 We are looking to expand how the data is stored to use the patient id as well to help build out data.
 
