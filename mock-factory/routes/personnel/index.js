@@ -1,4 +1,10 @@
-const { buildResponse, PARAMS, PARAM_DICTIONARY, openJsonFile } = require('../../utils');
+/* eslint-disable no-console */
+const {
+  buildResponse,
+  PARAMS,
+  PARAM_DICTIONARY,
+  openJsonFile,
+} = require('../../utils');
 
 const ROUTES = {
   '{authority}/personnel/{personnelIds}/recipient-access': {
@@ -9,17 +15,23 @@ const ROUTES = {
       [PARAMS.PERSONNEL_ID]: PARAM_DICTIONARY[PARAMS.PERSONNEL_ID],
     },
     times: {
-      'unlimited': true
+      unlimited: true,
     },
-    callback: function (request) {
-      console.log('GET Retrieves information used to determine if personnel have access to messaging', { request });
+    callback(request) {
+      console.log(
+        'GET Retrieves information used to determine if personnel have access to messaging',
+        { request },
+      );
       if (request.method !== 'GET') {
-        return buildResponse({ data: { error: 'Method not allowed' }, statusCode: 405 })
+        return buildResponse({
+          data: { error: 'Method not allowed' },
+          statusCode: 405,
+        });
       }
       const data = openJsonFile('personnel/get-recipient-access', 'default');
-      return buildResponse({ data })
-    }
+      return buildResponse({ data });
+    },
   },
-}
+};
 
-module.exports = ROUTES
+module.exports = ROUTES;
