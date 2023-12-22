@@ -34,12 +34,15 @@ const PARAM_DICTIONARY = {
 const openJsonFile = (folder, fileSlug) => {
   const defaultPath = path.join(__dirname, `/data/${folder}/default.json`);
   const messagePath = path.join(__dirname, `/data/${folder}/${fileSlug}.json`);
-  logger.info({
-    __dirname,
-    fileSlug,
-    messagePath,
-    defaultPath,
-  }, 'opening file');
+  logger.info(
+    {
+      __dirname,
+      fileSlug,
+      messagePath,
+      defaultPath,
+    },
+    'opening file',
+  );
   // check if file exists
   const pathToOpen = fs.existsSync(messagePath) ? messagePath : defaultPath;
   logger.info({ pathToOpen }, 'opening file');

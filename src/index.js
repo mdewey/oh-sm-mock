@@ -31,7 +31,11 @@ mockserver
           )
           .then(
             () => {
-              logger.info('expectation created: %s | %s', mock.name, mock.httpRequest.path);
+              logger.info(
+                'expectation created: %s | %s',
+                mock.name,
+                mock.httpRequest.path,
+              );
             },
             (error) => {
               logger.error(error);
