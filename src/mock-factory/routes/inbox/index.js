@@ -1,4 +1,5 @@
-/* eslint-disable no-console */
+const { logger } = require('../../../logger');
+
 const {
   buildResponse,
   PARAMS,
@@ -18,7 +19,7 @@ const ROUTES = {
       unlimited: true,
     },
     callback(request) {
-      console.log('GET messages for patient', { request });
+      logger.info({ request }, 'GET messages for patient');
       if (request.method !== 'GET') {
         return buildResponse({
           data: { error: 'Method not allowed' },
@@ -41,7 +42,7 @@ const ROUTES = {
       unlimited: true,
     },
     callback(request, times, priority) {
-      console.log('doing things', { request, times, priority });
+      logger.info({ request, times, priority }, 'doing things');
       if (request.method !== 'GET' && request.method !== 'DELETE') {
         return buildResponse({
           data: { error: 'Method not allowed' },
@@ -79,7 +80,7 @@ const ROUTES = {
         unlimited: true,
       },
       callback(request, times, priority) {
-        console.log('doing things', { request, times, priority });
+        logger.info({ request, times, priority }, 'doing things');
         if (request.method !== 'PUT') {
           return {
             statusCode: 405,

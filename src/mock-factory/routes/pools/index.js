@@ -1,4 +1,5 @@
-/* eslint-disable no-console */
+const { logger } = require('../../../logger');
+
 const {
   buildResponse,
   PARAMS,
@@ -17,7 +18,7 @@ const ROUTES = {
       unlimited: true,
     },
     callback(request) {
-      console.log('GET pools', { request });
+      logger.info({ request }, 'GET pools');
       if (request.method !== 'GET') {
         return buildResponse({
           data: { error: 'Method not allowed' },
@@ -39,7 +40,7 @@ const ROUTES = {
       unlimited: true,
     },
     callback(request) {
-      console.log('GET pool', { request });
+      logger.info({ request }, 'GET pool');
       if (request.method !== 'GET') {
         return buildResponse({
           data: { error: 'Method not allowed' },
@@ -61,7 +62,7 @@ const ROUTES = {
       unlimited: true,
     },
     callback(request) {
-      console.log('GET pool recipient access', { request });
+      logger.info({ request }, 'GET pool recipient access');
       if (request.method !== 'GET') {
         return buildResponse({
           data: { error: 'Method not allowed' },
