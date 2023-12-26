@@ -54,9 +54,14 @@ const ROUTES = {
           statusCode: 200,
         });
       }
-      console.log('GET message | message ids: ', request.pathParameters[PARAMS.MESSAGE_ID].join(','));
+      console.log(
+        'GET message | message ids: ',
+        request.pathParameters[PARAMS.MESSAGE_ID].join(','),
+      );
 
-      const id = request.pathParameters[PARAMS.MESSAGE_ID].join(',').replace(/:/g, '_');
+      const id = request.pathParameters[PARAMS.MESSAGE_ID]
+        .join(',')
+        .replace(/:/g, '_');
       const rvData = openJsonFile('inbox/get-message-by-id', id);
       const rv = {
         ...rvData,
@@ -65,29 +70,29 @@ const ROUTES = {
     },
   },
   '{authority}/patients/{patientId}/inbox/messages/{messageIds}/status/{status}':
-  {
-    name: 'Update message status for patient',
-    pathParameters: {
-      [PARAMS.BASE_AUTHORITY]: PARAM_DICTIONARY[PARAMS.BASE_AUTHORITY],
-      [PARAMS.AUTHORITY]: PARAM_DICTIONARY[PARAMS.AUTHORITY],
-      [PARAMS.PATIENT_ID]: PARAM_DICTIONARY[PARAMS.PATIENT_ID],
-      [PARAMS.MESSAGE_ID]: PARAM_DICTIONARY[PARAMS.MESSAGE_ID],
-      [PARAMS.STATUS]: PARAM_DICTIONARY[PARAMS.STATUS],
+    {
+      name: 'Update message status for patient',
+      pathParameters: {
+        [PARAMS.BASE_AUTHORITY]: PARAM_DICTIONARY[PARAMS.BASE_AUTHORITY],
+        [PARAMS.AUTHORITY]: PARAM_DICTIONARY[PARAMS.AUTHORITY],
+        [PARAMS.PATIENT_ID]: PARAM_DICTIONARY[PARAMS.PATIENT_ID],
+        [PARAMS.MESSAGE_ID]: PARAM_DICTIONARY[PARAMS.MESSAGE_ID],
+        [PARAMS.STATUS]: PARAM_DICTIONARY[PARAMS.STATUS],
+      },
+      times: {
+        unlimited: true,
+      },
+      callback(request, times, priority) {
+        console.log('doing things', { request, times, priority });
+        if (request.method !== 'PUT') {
+          return {
+            statusCode: 405,
+            body: JSON.stringify({ error: 'Method not allowed' }),
+          };
+        }
+        return buildResponse({ data: {} });
+      },
     },
-    times: {
-      unlimited: true,
-    },
-    callback(request, times, priority) {
-      console.log('doing things', { request, times, priority });
-      if (request.method !== 'PUT') {
-        return {
-          statusCode: 405,
-          body: JSON.stringify({ error: 'Method not allowed' }),
-        };
-      }
-      return buildResponse({ data: {} });
-    },
-  },
 };
 
 module.exports = ROUTES;
