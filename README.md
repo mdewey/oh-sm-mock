@@ -2,6 +2,20 @@
 
 > Very much a work in progress
 
+## Description
+
+This can be used to mock the Oracle Health Messaging API. The Swagger is located at in[/swagger directory](./swagger/messaging-rest-swagger_v3.yaml)
+
+### Build with
+
+- [Mock-server](https://www.mock-server.com)
+- Node & Docker
+- Json
+
+## Current state
+
+Returns the sample data given by the BCG team and what is in the swagger docs
+
 ## Endpoints Created
 
 > note this do not return sample data yet, just responses from the swagger
@@ -21,18 +35,36 @@
 ## How to run
 
 - clone
-- create empty .env file
+- create empty `.env` file in the project root
 - run `docker-compose up --build`
 
 ## how to add data
 
-TBD
+> WIP
 
-## Questions
+Currently, there needs to be some massaging of where the data is stored.
 
-- Param formats/types
+For now the get-message-by-id endpoints for outbox and inbox are set up to change data based on the message id passed in.
+
+We are looking to expand how the data is stored to use the patient id as well to help build out data.
+
+## Current Questions
+
+- What are the Param formats/types, specifically:
+
+  - Authority
+  - Patient Id
+  - Status
+  - Personnel Id
+  - Pool Id
+
 - The URL in the sample data suggests something different that the url in the swagger. Who is right? (check out the id url, its not `/messaging/` its `/msvc-messaging-2.0/`)
-- confirm that headers === index route
+
+- Just to confirm that headers === index route
+
+- Which endpoints will be specifically be using?
+
+- Do we need to mock the authentication as well?
 
 ## Next
 
@@ -40,8 +72,7 @@ TBD
 - [ ] Refine doc
   - [ ] add discovery endpoint
 - [ ] refine logging
-- [x] move to VA github
-  - [ ] convert these to tickets
+- [ ] convert these to tickets
 - [ ] test suite
 - [ ] move times to route of mock
 - [ ] add port to env variable
@@ -59,6 +90,6 @@ TBD
 
 ### OpenAPI/Swagger integration
 
-Can not use out of the box integration due to not binge able to specify the return data past one example in the swagger.
+Can not use out of the box integration due to not being able to specify the return data past one example in the swagger.
 
 Refer to the ticket [MHV-52692](https://jira.devops.va.gov/browse/MHV-52692) for a full breakdown.
