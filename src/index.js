@@ -1,7 +1,8 @@
-/* eslint-disable no-console */
 const mockserver = require('mockserver-node');
 const { mockServerClient } = require('mockserver-client');
 const { MessagingApiMock } = require('./mock-factory');
+
+const { logger } = require('./logger');
 
 const PORT = 3000;
 
@@ -12,11 +13,11 @@ mockserver
   })
   .then(
     () => {
-      console.log('started MockServer');
+      logger.info('started MockServer');
       const mocks = MessagingApiMock.createMockPaths();
-      console.log(`LOG: creating ${mocks.length} mocks`);
+      logger.info('LOG: creating %d mocks', mocks.length);
       mocks.forEach((mock) => {
-        console.log(mock);
+        logger.info(mock);
         mockServerClient('localhost', PORT)
           .mockWithCallback(
             {
@@ -30,17 +31,19 @@ mockserver
           )
           .then(
             () => {
-              console.log(
-                `expectation created: ${mock.name} | ${mock.httpRequest.path}`,
+              logger.info(
+                'expectation created: %s | %s',
+                mock.name,
+                mock.httpRequest.path,
               );
             },
             (error) => {
-              console.log(error);
+              logger.error(error);
             },
           );
       });
     },
     (error) => {
-      console.log(JSON.stringify(error, null, '  '));
+      logger.error(error);
     },
   );

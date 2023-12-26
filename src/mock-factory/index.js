@@ -1,4 +1,5 @@
-/* eslint-disable no-console */
+const { logger } = require('../logger');
+
 const INBOX = require('./routes/inbox');
 const OUTBOX = require('./routes/outbox');
 const PERSONNEL = require('./routes/personnel');
@@ -20,12 +21,12 @@ class MessagingApiMock {
   }
 
   allPaths() {
-    console.log(this.paths);
+    logger.info(this.paths);
     return this.paths;
   }
 
   createMockPaths() {
-    console.log('paths', SCHEMA);
+    logger.info(SCHEMA, 'paths');
     return this.paths.map((path) => {
       const pathSchema = SCHEMA[path.replace(this.basePath, '')];
       return {

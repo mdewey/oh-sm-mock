@@ -1,4 +1,5 @@
-/* eslint-disable no-console */
+const { logger } = require('../../../logger');
+
 const {
   buildResponse,
   PARAMS,
@@ -18,9 +19,9 @@ const ROUTES = {
       unlimited: true,
     },
     callback(request) {
-      console.log(
-        'GET Retrieves information used to determine if personnel have access to messaging',
+      logger.info(
         { request },
+        'GET Retrieves information used to determine if personnel have access to messaging',
       );
       if (request.method !== 'GET') {
         return buildResponse({

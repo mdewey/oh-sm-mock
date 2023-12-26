@@ -1,6 +1,7 @@
-/* eslint-disable no-console */
 const fs = require('node:fs');
 const path = require('node:path');
+
+const { logger } = require('../logger');
 
 const buildResponse = ({ data, statusCode = 200 }) => ({
   statusCode,
@@ -33,15 +34,18 @@ const PARAM_DICTIONARY = {
 const openJsonFile = (folder, fileSlug) => {
   const defaultPath = path.join(__dirname, `/data/${folder}/default.json`);
   const messagePath = path.join(__dirname, `/data/${folder}/${fileSlug}.json`);
-  console.log('opening file', {
-    __dirname,
-    fileSlug,
-    messagePath,
-    defaultPath,
-  });
+  logger.info(
+    {
+      __dirname,
+      fileSlug,
+      messagePath,
+      defaultPath,
+    },
+    'opening file',
+  );
   // check if file exists
   const pathToOpen = fs.existsSync(messagePath) ? messagePath : defaultPath;
-  console.log('opening file', { pathToOpen });
+  logger.info({ pathToOpen }, 'opening file');
   const data = fs.readFileSync(pathToOpen, 'utf8');
   const json = JSON.parse(data);
   return json;
