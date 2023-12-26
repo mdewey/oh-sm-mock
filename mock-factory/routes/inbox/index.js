@@ -54,10 +54,14 @@ const ROUTES = {
           statusCode: 200,
         });
       }
-      const id = request.pathParameters[PARAMS.MESSAGE_ID][0].replace(
-        /:/g,
-        '_',
+      console.log(
+        'GET message | message ids: ',
+        request.pathParameters[PARAMS.MESSAGE_ID].join(','),
       );
+
+      const id = request.pathParameters[PARAMS.MESSAGE_ID]
+        .join(',')
+        .replace(/:/g, '_');
       const rvData = openJsonFile('inbox/get-message-by-id', id);
       const rv = {
         ...rvData,

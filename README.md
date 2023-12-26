@@ -69,10 +69,10 @@ We are looking to expand how the data is stored to use the patient id as well to
 ## Next
 
 - [ ] figure out the params
-- [ ] add discovery endpoint
+- [ ] Refine doc
+  - [ ] add discovery endpoint
 - [ ] refine logging
-- [x] move to VA github
-  - [ ] convert these to tickets
+- [ ] convert these to tickets
 - [ ] test suite
 - [ ] move times to route of mock
 - [ ] add port to env variable
@@ -90,6 +90,6 @@ We are looking to expand how the data is stored to use the patient id as well to
 
 ### OpenAPI/Swagger integration
 
-Can not use out of the box integration due to not binge able to specify the return data past one example in the swagger.
+Can not use out of the box integration due to not being able to specify the return data past one example in the swagger.
 
 Refer to the ticket [MHV-52692](https://jira.devops.va.gov/browse/MHV-52692) for a full breakdown.
