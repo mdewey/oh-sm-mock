@@ -3,7 +3,11 @@ const path = require('node:path');
 
 const { logger } = require('../logger');
 
-const buildResponse = ({ data, statusCode = 200, contentType = 'application/json; charset=utf-8' }) => ({
+const buildResponse = ({
+  data,
+  statusCode = 200,
+  contentType = 'application/json; charset=utf-8',
+}) => ({
   statusCode,
   headers: {
     'Content-Type': contentType,
@@ -42,8 +46,12 @@ const PARAM_DICTIONARY = {
 };
 
 const openJsonFile = (mock, folder, fileSlug) => {
-  const defaultPath = path.join(__dirname, `/data/${folder}/default.json`).replace('utils', mock);
-  const messagePath = path.join(__dirname, `/data/${folder}/${fileSlug}.json`).replace('utils', mock);
+  const defaultPath = path
+    .join(__dirname, `/data/${folder}/default.json`)
+    .replace('utils', mock);
+  const messagePath = path
+    .join(__dirname, `/data/${folder}/${fileSlug}.json`)
+    .replace('utils', mock);
   logger.info(
     {
       __dirname,

@@ -182,9 +182,7 @@
       "use": "official",
       "text": "testpatient, anita, default",
       "family": "testpatient",
-      "given": [
-        "anita"
-      ],
+      "given": ["anita"],
       "period": {
         "start": "2023-02-24T17:58:49.000Z"
       }
@@ -197,9 +195,7 @@
       "id": "CI-322024504-0",
       "use": "billing",
       "text": "425 COCUS ST\nOVERLAND PARK, KS 66224\nUS",
-      "line": [
-        "425 COCUS ST"
-      ],
+      "line": ["425 COCUS ST"],
       "city": "OVERLAND PARK",
       "state": "KS",
       "postalCode": "66224",
