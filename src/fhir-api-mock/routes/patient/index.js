@@ -8,7 +8,7 @@ const {
 } = require('../../../utils');
 
 const ROUTES = {
-  'patient/{patientId}': {
+  'patient/{fhirPatientId}': {
     name: 'GET Patient Resource by ID',
     pathParameters: {
       [PARAMS.INSTANCE_ID]: PARAM_DICTIONARY[PARAMS.INSTANCE_ID],

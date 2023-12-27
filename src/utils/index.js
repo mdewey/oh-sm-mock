@@ -37,8 +37,8 @@ const PARAM_DICTIONARY = {
   [PARAMS.POOL_ID]: ['[A-z0-9]*,?'],
 
   // FHIR API
-  [PARAMS.INSTANCE_ID]: ['[A-Z0-9\\-]+'],
-  [PARAMS.FHIR_PATIENT_ID]: ['[A-Z0-9\\-]+'],
+  [PARAMS.INSTANCE_ID]: ['[a-z0-9\\-]+'],
+  [PARAMS.FHIR_PATIENT_ID]: ['[A-z0-9]*'],
 };
 
 const openJsonFile = (mock, folder, fileSlug) => {
