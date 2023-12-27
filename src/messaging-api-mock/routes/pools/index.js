@@ -5,7 +5,7 @@ const {
   PARAMS,
   PARAM_DICTIONARY,
   openJsonFile,
-} = require('../../utils');
+} = require('../../../utils');
 
 const ROUTES = {
   '{authority}/pools': {
@@ -25,7 +25,7 @@ const ROUTES = {
           statusCode: 405,
         });
       }
-      const data = openJsonFile('pools/get-pools', 'default');
+      const data = openJsonFile('messaging-api-mock','pools/get-pools', 'default');
       return buildResponse({ data });
     },
   },
@@ -47,7 +47,7 @@ const ROUTES = {
           statusCode: 405,
         });
       }
-      const data = openJsonFile('pools/get-pools-by-id', 'default');
+      const data = openJsonFile('messaging-api-mock','pools/get-pools-by-id', 'default');
       return buildResponse({ data });
     },
   },
@@ -69,7 +69,7 @@ const ROUTES = {
           statusCode: 405,
         });
       }
-      const data = openJsonFile('pools/get-pool-access', 'default');
+      const data = openJsonFile('messaging-api-mock','pools/get-pool-access', 'default');
       return buildResponse({ data });
     },
   },

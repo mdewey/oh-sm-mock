@@ -1,20 +1,13 @@
 const { logger } = require('../logger');
 
-const INBOX = require('./routes/inbox');
-const OUTBOX = require('./routes/outbox');
-const PERSONNEL = require('./routes/personnel');
-const POOLS = require('./routes/pools');
+const PATIENT = require('./routes/patient');
 
 const SCHEMA = {
-  ...INBOX,
-  ...OUTBOX,
-  ...PERSONNEL,
-  ...POOLS,
-};
+  ...PATIENT,
+}
 
-class MessagingApiMock {
-  basePath = '/messaging/{baseAuthority}/service/';
-
+class FhirR4ApiMock {
+  basePath = '/r4/{instanceId}/';
   constructor() {
     this.messages = [];
     this.paths = Object.keys(SCHEMA).map((path) => this.basePath + path);
@@ -26,7 +19,7 @@ class MessagingApiMock {
   }
 
   createMockPaths() {
-    logger.info('building messaging api', SCHEMA);
+    logger.info('building fhir r4 api', SCHEMA);
     return this.paths.map((path) => {
       const pathSchema = SCHEMA[path.replace(this.basePath, '')];
       return {
@@ -43,5 +36,5 @@ class MessagingApiMock {
 }
 
 module.exports = {
-  MessagingApiMock: new MessagingApiMock(),
+  FhirR4ApiMock: new FhirR4ApiMock(),
 };

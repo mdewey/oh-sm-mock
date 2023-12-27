@@ -3,15 +3,16 @@ const path = require('node:path');
 
 const { logger } = require('../logger');
 
-const buildResponse = ({ data, statusCode = 200 }) => ({
+const buildResponse = ({ data, statusCode = 200, contentType = 'application/json; charset=utf-8' }) => ({
   statusCode,
   headers: {
-    'Content-Type': 'application/json; charset=utf-8',
+    'Content-Type': contentType,
   },
   body: JSON.stringify(data),
 });
 
 const PARAMS = {
+  // Messaging API
   BASE_AUTHORITY: 'baseAuthority',
   AUTHORITY: 'authority',
   PATIENT_ID: 'patientId',
@@ -19,9 +20,14 @@ const PARAMS = {
   STATUS: 'status',
   PERSONNEL_ID: 'personnelIds',
   POOL_ID: 'poolIds',
+
+  // FHIR API
+  INSTANCE_ID: 'instanceId',
+  FHIR_PATIENT_ID: 'fhirPatientId',
 };
 
 const PARAM_DICTIONARY = {
+  // Messaging API
   [PARAMS.BASE_AUTHORITY]: ['[A-Z0-9\\-]+'],
   [PARAMS.AUTHORITY]: ['[A-Z0-9\\-]+'],
   [PARAMS.PATIENT_ID]: ['[A-Z0-9\\-]+'],
@@ -29,11 +35,19 @@ const PARAM_DICTIONARY = {
   [PARAMS.STATUS]: ['[A-z0-9]*'],
   [PARAMS.PERSONNEL_ID]: ['[A-z0-9]*,?'],
   [PARAMS.POOL_ID]: ['[A-z0-9]*,?'],
+
+  // FHIR API
+  [PARAMS.INSTANCE_ID]: ['[A-Z0-9\\-]+'],
+  [PARAMS.FHIR_PATIENT_ID]: ['[A-Z0-9\\-]+'],
 };
 
-const openJsonFile = (folder, fileSlug) => {
-  const defaultPath = path.join(__dirname, `/data/${folder}/default.json`);
-  const messagePath = path.join(__dirname, `/data/${folder}/${fileSlug}.json`);
+const openJsonFile = (mock, folder, fileSlug) => {
+  const defaultPath = path.join(__dirname, `/data/${folder}/default.json`).replace(
+    'utils', mock
+  );
+  const messagePath = path.join(__dirname, `/data/${folder}/${fileSlug}.json`).replace(
+    'utils', mock
+  );
   logger.info(
     {
       __dirname,
@@ -51,9 +65,12 @@ const openJsonFile = (folder, fileSlug) => {
   return json;
 };
 
+
 module.exports = {
   buildResponse,
   PARAMS,
   PARAM_DICTIONARY,
   openJsonFile,
 };
+
+

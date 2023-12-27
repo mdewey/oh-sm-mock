@@ -5,7 +5,7 @@ const {
   PARAMS,
   PARAM_DICTIONARY,
   openJsonFile,
-} = require('../../utils');
+} = require('../../../utils');
 
 const ROUTES = {
   '{authority}/personnel/{personnelIds}/recipient-access': {
@@ -29,7 +29,7 @@ const ROUTES = {
           statusCode: 405,
         });
       }
-      const data = openJsonFile('personnel/get-recipient-access', 'default');
+      const data = openJsonFile('messaging-api-mock','personnel/get-recipient-access', 'default');
       return buildResponse({ data });
     },
   },

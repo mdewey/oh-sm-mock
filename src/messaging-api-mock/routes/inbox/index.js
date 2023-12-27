@@ -5,7 +5,7 @@ const {
   PARAMS,
   PARAM_DICTIONARY,
   openJsonFile,
-} = require('../../utils');
+} = require('../../../utils');
 
 const ROUTES = {
   '{authority}/patients/{patientId}/inbox/messages': {
@@ -26,7 +26,7 @@ const ROUTES = {
           statusCode: 405,
         });
       }
-      const data = openJsonFile('inbox/get-messages', 'default');
+      const data = openJsonFile('messaging-api-mock','inbox/get-messages', 'default');
       return buildResponse({ data });
     },
   },
@@ -63,7 +63,7 @@ const ROUTES = {
       const id = request.pathParameters[PARAMS.MESSAGE_ID]
         .join(',')
         .replace(/:/g, '_');
-      const rvData = openJsonFile('inbox/get-message-by-id', id);
+      const rvData = openJsonFile('messaging-api-mock','inbox/get-message-by-id', id);
       const rv = {
         ...rvData,
       };
