@@ -5,7 +5,7 @@ const {
   PARAMS,
   PARAM_DICTIONARY,
   openJsonFile,
-} = require('../../utils');
+} = require('../../../utils');
 
 const ROUTES = {
   '{authority}/patients/{patientId}/outbox/messages': {
@@ -14,9 +14,6 @@ const ROUTES = {
       [PARAMS.BASE_AUTHORITY]: PARAM_DICTIONARY[PARAMS.BASE_AUTHORITY],
       [PARAMS.AUTHORITY]: PARAM_DICTIONARY[PARAMS.AUTHORITY],
       [PARAMS.PATIENT_ID]: PARAM_DICTIONARY[PARAMS.PATIENT_ID],
-    },
-    times: {
-      unlimited: true,
     },
     callback(request) {
       logger.info({ request }, 'GET messages for patient');
@@ -28,11 +25,19 @@ const ROUTES = {
       }
 
       if (request.method === 'POST') {
-        const data = openJsonFile('outbox/post-outbox-messages', 'default');
+        const data = openJsonFile(
+          'messaging-api-mock',
+          'outbox/post-outbox-messages',
+          'default',
+        );
         return buildResponse({ data, statusCode: 201 });
       }
 
-      const data = openJsonFile('outbox/get-outbox-messages', 'default');
+      const data = openJsonFile(
+        'messaging-api-mock',
+        'outbox/get-outbox-messages',
+        'default',
+      );
       return buildResponse({ data });
     },
   },
@@ -43,9 +48,6 @@ const ROUTES = {
       [PARAMS.AUTHORITY]: PARAM_DICTIONARY[PARAMS.AUTHORITY],
       [PARAMS.PATIENT_ID]: PARAM_DICTIONARY[PARAMS.PATIENT_ID],
       [PARAMS.MESSAGE_ID]: PARAM_DICTIONARY[PARAMS.MESSAGE_ID],
-    },
-    times: {
-      unlimited: true,
     },
     callback(request) {
       logger.info({ request }, 'GET messages for patient');
@@ -58,7 +60,11 @@ const ROUTES = {
       const id = request.pathParameters[PARAMS.MESSAGE_ID]
         .join(',')
         .replace(/:/g, '_');
-      const rvData = openJsonFile('outbox/get-messages-by-id', id);
+      const rvData = openJsonFile(
+        'messaging-api-mock',
+        'outbox/get-messages-by-id',
+        id,
+      );
       const rv = {
         ...rvData,
       };

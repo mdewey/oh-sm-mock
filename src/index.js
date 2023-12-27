@@ -1,6 +1,7 @@
 const mockserver = require('mockserver-node');
 const { mockServerClient } = require('mockserver-client');
-const { MessagingApiMock } = require('./mock-factory');
+const { MessagingApiMock } = require('./messaging-api-mock');
+const { FhirR4ApiMock } = require('./fhir-api-mock');
 
 const { logger } = require('./logger');
 
@@ -14,7 +15,10 @@ mockserver
   .then(
     () => {
       logger.info('started MockServer');
-      const mocks = MessagingApiMock.createMockPaths();
+      const mocks = [
+        ...MessagingApiMock.createMockPaths(),
+        ...FhirR4ApiMock.createMockPaths(),
+      ];
       logger.info('LOG: creating %d mocks', mocks.length);
       mocks.forEach((mock) => {
         logger.info(mock);
@@ -27,7 +31,9 @@ mockserver
               },
             },
             mock.callback,
-            mock.times,
+            {
+              unlimited: true,
+            },
           )
           .then(
             () => {
