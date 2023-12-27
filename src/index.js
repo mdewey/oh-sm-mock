@@ -31,7 +31,9 @@ mockserver
               },
             },
             mock.callback,
-            mock.times,
+            {
+              unlimited: true,
+            },
           )
           .then(
             () => {

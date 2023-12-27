@@ -14,9 +14,6 @@ const ROUTES = {
       [PARAMS.BASE_AUTHORITY]: PARAM_DICTIONARY[PARAMS.BASE_AUTHORITY],
       [PARAMS.AUTHORITY]: PARAM_DICTIONARY[PARAMS.AUTHORITY],
     },
-    times: {
-      unlimited: true,
-    },
     callback(request) {
       logger.info({ request }, 'GET pools');
       if (request.method !== 'GET') {
@@ -36,9 +33,6 @@ const ROUTES = {
       [PARAMS.AUTHORITY]: PARAM_DICTIONARY[PARAMS.AUTHORITY],
       [PARAMS.POOL_ID]: PARAM_DICTIONARY[PARAMS.POOL_ID],
     },
-    times: {
-      unlimited: true,
-    },
     callback(request) {
       logger.info({ request }, 'GET pool');
       if (request.method !== 'GET') {
@@ -57,9 +51,6 @@ const ROUTES = {
       [PARAMS.BASE_AUTHORITY]: PARAM_DICTIONARY[PARAMS.BASE_AUTHORITY],
       [PARAMS.AUTHORITY]: PARAM_DICTIONARY[PARAMS.AUTHORITY],
       [PARAMS.POOL_ID]: PARAM_DICTIONARY[PARAMS.POOL_ID],
-    },
-    times: {
-      unlimited: true,
     },
     callback(request) {
       logger.info({ request }, 'GET pool recipient access');

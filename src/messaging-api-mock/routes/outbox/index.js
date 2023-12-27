@@ -15,9 +15,6 @@ const ROUTES = {
       [PARAMS.AUTHORITY]: PARAM_DICTIONARY[PARAMS.AUTHORITY],
       [PARAMS.PATIENT_ID]: PARAM_DICTIONARY[PARAMS.PATIENT_ID],
     },
-    times: {
-      unlimited: true,
-    },
     callback(request) {
       logger.info({ request }, 'GET messages for patient');
       if (request.method !== 'GET' && request.method !== 'POST') {
@@ -43,9 +40,6 @@ const ROUTES = {
       [PARAMS.AUTHORITY]: PARAM_DICTIONARY[PARAMS.AUTHORITY],
       [PARAMS.PATIENT_ID]: PARAM_DICTIONARY[PARAMS.PATIENT_ID],
       [PARAMS.MESSAGE_ID]: PARAM_DICTIONARY[PARAMS.MESSAGE_ID],
-    },
-    times: {
-      unlimited: true,
     },
     callback(request) {
       logger.info({ request }, 'GET messages for patient');

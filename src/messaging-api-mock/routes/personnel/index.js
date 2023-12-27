@@ -15,9 +15,6 @@ const ROUTES = {
       [PARAMS.AUTHORITY]: PARAM_DICTIONARY[PARAMS.AUTHORITY],
       [PARAMS.PERSONNEL_ID]: PARAM_DICTIONARY[PARAMS.PERSONNEL_ID],
     },
-    times: {
-      unlimited: true,
-    },
     callback(request) {
       logger.info(
         { request },

@@ -14,9 +14,6 @@ const ROUTES = {
       [PARAMS.INSTANCE_ID]: PARAM_DICTIONARY[PARAMS.INSTANCE_ID],
       [PARAMS.FHIR_PATIENT_ID]: PARAM_DICTIONARY[PARAMS.FHIR_PATIENT_ID],
     },
-    times: {
-      unlimited: true,
-    },
     callback(request) {
       logger.info({ request }, 'GET Patient Resource by ID');
       if (request.method !== 'GET') {

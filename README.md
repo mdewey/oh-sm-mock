@@ -71,12 +71,9 @@ We are looking to expand how the data is stored to use the patient id as well to
 - [ ] figure out the params
 - [ ] Refine doc
   - [ ] add discovery endpoint
-- [ ] refine logging
 - [ ] convert these to tickets
 - [ ] test suite
-- [ ] move times to route of mock
 - [ ] add port to env variable
-- [ ] add linting
 
 ## Someday
 
