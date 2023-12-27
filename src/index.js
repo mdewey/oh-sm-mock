@@ -18,7 +18,7 @@ mockserver
       const mocks = [
         ...MessagingApiMock.createMockPaths(),
         ...FhirR4ApiMock.createMockPaths(),
-      ]
+      ];
       logger.info('LOG: creating %d mocks', mocks.length);
       mocks.forEach((mock) => {
         logger.info(mock);
@@ -48,7 +48,6 @@ mockserver
             },
           );
       });
-   
     },
     (error) => {
       logger.error(error);

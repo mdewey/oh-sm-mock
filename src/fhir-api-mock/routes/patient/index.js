@@ -22,10 +22,10 @@ const ROUTES = {
           statusCode: 405,
         });
       }
-      const data = openJsonFile('fhir-api-mock','patient', 'default');
+      const data = openJsonFile('fhir-api-mock', 'patient', 'default');
       return buildResponse({ data });
     },
-  }
+  },
 };
 
 module.exports = ROUTES;

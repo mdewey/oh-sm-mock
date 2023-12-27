@@ -42,12 +42,8 @@ const PARAM_DICTIONARY = {
 };
 
 const openJsonFile = (mock, folder, fileSlug) => {
-  const defaultPath = path.join(__dirname, `/data/${folder}/default.json`).replace(
-    'utils', mock
-  );
-  const messagePath = path.join(__dirname, `/data/${folder}/${fileSlug}.json`).replace(
-    'utils', mock
-  );
+  const defaultPath = path.join(__dirname, `/data/${folder}/default.json`).replace('utils', mock);
+  const messagePath = path.join(__dirname, `/data/${folder}/${fileSlug}.json`).replace('utils', mock);
   logger.info(
     {
       __dirname,
@@ -65,12 +61,9 @@ const openJsonFile = (mock, folder, fileSlug) => {
   return json;
 };
 
-
 module.exports = {
   buildResponse,
   PARAMS,
   PARAM_DICTIONARY,
   openJsonFile,
 };
-
-

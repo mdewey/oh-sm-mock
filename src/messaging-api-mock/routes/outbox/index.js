@@ -25,11 +25,11 @@ const ROUTES = {
       }
 
       if (request.method === 'POST') {
-        const data = openJsonFile('messaging-api-mock','outbox/post-outbox-messages', 'default');
+        const data = openJsonFile('messaging-api-mock', 'outbox/post-outbox-messages', 'default');
         return buildResponse({ data, statusCode: 201 });
       }
 
-      const data = openJsonFile('messaging-api-mock','outbox/get-outbox-messages', 'default');
+      const data = openJsonFile('messaging-api-mock', 'outbox/get-outbox-messages', 'default');
       return buildResponse({ data });
     },
   },
@@ -52,7 +52,7 @@ const ROUTES = {
       const id = request.pathParameters[PARAMS.MESSAGE_ID]
         .join(',')
         .replace(/:/g, '_');
-      const rvData = openJsonFile('messaging-api-mock','outbox/get-messages-by-id', id);
+      const rvData = openJsonFile('messaging-api-mock', 'outbox/get-messages-by-id', id);
       const rv = {
         ...rvData,
       };

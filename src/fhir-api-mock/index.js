@@ -4,10 +4,11 @@ const PATIENT = require('./routes/patient');
 
 const SCHEMA = {
   ...PATIENT,
-}
+};
 
 class FhirR4ApiMock {
   basePath = '/r4/{instanceId}/';
+
   constructor() {
     this.messages = [];
     this.paths = Object.keys(SCHEMA).map((path) => this.basePath + path);
