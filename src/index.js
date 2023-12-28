@@ -2,6 +2,7 @@ const mockserver = require('mockserver-node');
 const { mockServerClient } = require('mockserver-client');
 const { MessagingApiMock } = require('./messaging-api-mock');
 const { FhirR4ApiMock } = require('./fhir-api-mock');
+const { MhvMessagingMock } = require('./mhv-message-mock');
 
 const { logger } = require('./logger');
 
@@ -18,6 +19,7 @@ mockserver
       const mocks = [
         ...MessagingApiMock.createMockPaths(),
         ...FhirR4ApiMock.createMockPaths(),
+        ...MhvMessagingMock.createMockPaths(),
       ];
       logger.info('LOG: creating %d mocks', mocks.length);
       mocks.forEach((mock) => {
